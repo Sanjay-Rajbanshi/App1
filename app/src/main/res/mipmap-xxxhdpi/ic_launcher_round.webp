@@ -1,0 +1,232 @@
+e\updater\util\win_util.cc:1651] updater::UpdaterImpl::RuntimeClassInitialize: COM client for this COM server has PID: 1580, and has command line: 
+[11016:4476:0824/221541.195:VERBOSE2:chrome\updater\app\app_server_win.cc:263] Stop: COM server is shutting down.
+[11016:19944:0824/221541.196:VERBOSE1:chrome\updater\app\server\update_service_stub.cc:405] UpdateService client disconnected.
+[11016:19944:0824/221541.196:VERBOSE1:chrome\updater\app\app.cc:52] Shutdown: 0
+[11016:13300:0824/221541.196:VERBOSE1:chrome\updater\prefs.cc:251] Prefs committed.
+[11016:19944:0824/221541.196:VERBOSE1:chrome\updater\prefs.cc:164] ~UpdaterPrefsImpl: C:\Program Files (x86)\Google\GoogleUpdater
+[11016:19220:0824/221541.201:VERBOSE2:chrome\updater\event_history.cc:265] Emitted a UPDATER_PROCESS END event to the history log
+[11016:19220:0824/221541.201:VERBOSE1:chrome\updater\updater.cc:419] UpdaterMain (--windows-service) returned 0.
+[1324:9700:0824/221541.214:VERBOSE2:chrome\updater\event_history.cc:265] Emitted a UPDATER_PROCESS END event to the history log
+[1324:9700:0824/221541.214:VERBOSE1:chrome\updater\updater.cc:419] UpdaterMain (--crash-handler) returned 0.
+[18680:19420:0824/221542.091:VERBOSE1:chrome\updater\updater.cc:374] Version: 152.0.7933.0, opt, x86, command line: "C:\Program Files (x86)\Google\GoogleUpdater\152.0.7933.0\updater.exe" --system --windows-service --service=update
+[18680:19420:0824/221542.091:VERBOSE1:chrome\updater\updater.cc:377] OS version: 10.0.26200.9168, arch: x86_64, System uptime (seconds): 83639, parent pid: 1216
+[18680:19420:0824/221542.091:VERBOSE1:chrome\updater\updater.cc:382] Available disk space in install directory (C:\Program Files (x86)\Google\GoogleUpdater): 287367032832B (267.631GiB) / 384599846912B (358.187GiB)
+[18680:19420:0824/221542.091:VERBOSE1:chrome\updater\updater.cc:386] Available disk space in temporary directory (C:\Windows\SystemTemp): 287367032832B (267.631GiB) / 384599846912B (358.187GiB)
+[18680:19420:0824/221542.091:VERBOSE1:chrome\updater\util\win_util.cc:583] available: 9352M, total: 19159M, phys: 16G
+[18680:19420:0824/221542.092:VERBOSE2:chrome\updater\event_history.cc:265] Emitted a UPDATER_PROCESS START event to the history log
+[19292:14776:0824/221542.139:VERBOSE1:chrome\updater\updater.cc:374] Version: 152.0.7933.0, opt, x86, command line: "C:\Program Files (x86)\Google\GoogleUpdater\152.0.7933.0\updater.exe" --crash-handler --system "--database=C:\Program Files (x86)\Google\GoogleUpdater\152.0.7933.0\Crashpad" --url=https://clients2.google.com/cr/report --annotation=prod=Update4 --annotation=ver=152.0.7933.0 "--attachment=C:\Program Files (x86)\Google\GoogleUpdater\updater.log" "--attachment=C:\Program Files (x86)\Google\GoogleUpdater\updater_history.jsonl" --initial-client-data=0x2b8,0x2bc,0x2c0,0x2b4,0x2c4,0x1251e40,0x1251e4c,0x1251e58
+[19292:14776:0824/221542.139:VERBOSE1:chrome\updater\updater.cc:377] OS version: 10.0.26200.9168, arch: x86_64, System uptime (seconds): 83639, parent pid: 18680
+[19292:14776:0824/221542.139:VERBOSE1:chrome\updater\updater.cc:382] Available disk space in install directory (C:\Program Files (x86)\Google\GoogleUpdater): 287367032832B (267.631GiB) / 384599846912B (358.187GiB)
+[19292:14776:0824/221542.139:VERBOSE1:chrome\updater\updater.cc:386] Available disk space in temporary directory (C:\Windows\SystemTemp): 287367032832B (267.631GiB) / 384599846912B (358.187GiB)
+[19292:14776:0824/221542.139:VERBOSE1:chrome\updater\updater.cc:393] Parent process command line: "C:\Program Files (x86)\Google\GoogleUpdater\152.0.7933.0\updater.exe" --system --windows-service --service=update
+[19292:14776:0824/221542.139:VERBOSE1:chrome\updater\util\win_util.cc:583] available: 9348M, total: 19159M, phys: 16G
+[19292:14776:0824/221542.139:VERBOSE2:chrome\updater\event_history.cc:265] Emitted a UPDATER_PROCESS START event to the history log
+[18680:19420:0824/221542.141:VERBOSE1:chrome\updater\crash_reporter.cc:124] Crash handler launched and ready.
+[18680:19420:0824/221542.142:VERBOSE1:chrome\updater\crash_client.cc:108] Found 0 completed crash reports
+[18680:19420:0824/221542.142:VERBOSE1:chrome\updater\crash_client.cc:132] Found 0 pending crash reports
+[18680:19420:0824/221542.142:VERBOSE2:chrome\updater\usage_stats_permissions_win.cc:77] usage stats enabled by app {8a69d345-d564-463c-aff1-a69d9e530f96}
+[18680:19420:0824/221542.145:VERBOSE1:chrome\updater\updater.cc:105] Crash reporting initialized.
+[18680:19420:0824/221542.147:VERBOSE1:chrome\updater\updater.cc:155] IsUserAdmin: 1, IsUserNonElevatedAdmin: 0, IsUACOn: 1, IsElevatedWithUACOn: 1, LUA: 1
+[18680:3240:0824/221542.168:VERBOSE2:chrome\updater\app\server\win\updater_service_delegate.cc:63] Running COM server within the Windows Service
+[18680:3240:0824/221542.168:VERBOSE2:chrome\updater\app\app_server.cc:64] ModeCheck
+[18680:3240:0824/221542.168:VERBOSE2:chrome\updater\prefs.cc:113] CreateGlobalPrefsInternal
+[18680:3240:0824/221542.168:VERBOSE1:chrome\updater\prefs.cc:159] UpdaterPrefsImpl (global): C:\Program Files (x86)\Google\GoogleUpdater
+[18680:3240:0824/221542.168:VERBOSE2:chrome\updater\app\app_server.cc:77] This version: 152.0.7933.0, active version: 152.0.7933.0
+[18680:3240:0824/221542.168:VERBOSE1:chrome\updater\win\setup\setup_util.cc:263] AreComInterfacesPresent: scope: System: is_internal: 0
+[18680:3240:0824/221542.176:VERBOSE2:chrome\updater\win\setup\setup_util.cc:284] AreComInterfacesPresent: all interfaces present
+[18680:15920:0824/221542.177:VERBOSE2:chrome\updater\event_history.cc:265] Emitted a PERSISTED_DATA INSTANT event to the history log
+[18680:3240:0824/221542.177:VERBOSE1:chrome\enterprise_companion\device_management_storage\dm_storage_win.cc:242] GetDmToken: token not found.
+[18680:15920:0824/221542.177:VERBOSE2:chrome\updater\event_history.cc:265] Emitted a LOAD_POLICY START event to the history log
+[18680:3240:0824/221542.177:VERBOSE1:chrome\enterprise_companion\device_management_storage\dm_storage.cc:218] No valid DM token.
+[18680:3240:0824/221542.184:VERBOSE1:chrome\updater\policy\service.cc:151] Current effective policies:
+{
+  LastCheckPeriod = 16200 s (Default)
+}
+
+[18680:15920:0824/221542.184:VERBOSE2:chrome\updater\event_history.cc:265] Emitted a LOAD_POLICY END event to the history log
+[18680:3240:0824/221542.184:VERBOSE2:chrome\updater\usage_stats_permissions_win.cc:108] Event logging disabled by presence of other apps
+[18680:11388:0824/221542.194:VERBOSE2:chrome\updater\app\server\win\com_classes.cc:232] RuntimeClassInitialize
+[18680:11388:0824/221542.194:VERBOSE2:chrome\updater\util\win_util.cc:1651] updater::UpdaterImpl::RuntimeClassInitialize: COM client for this COM server has PID: 1580, and has command line: 
+[18680:14088:0824/221542.197:VERBOSE2:chrome\updater\app\app_server_win.cc:263] Stop: COM server is shutting down.
+[18680:3240:0824/221542.197:VERBOSE1:chrome\updater\app\server\update_service_stub.cc:405] UpdateService client disconnected.
+[18680:3240:0824/221542.198:VERBOSE1:chrome\updater\app\app.cc:52] Shutdown: 0
+[18680:15920:0824/221542.198:VERBOSE1:chrome\updater\prefs.cc:251] Prefs committed.
+[18680:3240:0824/221542.198:VERBOSE1:chrome\updater\prefs.cc:164] ~UpdaterPrefsImpl: C:\Program Files (x86)\Google\GoogleUpdater
+[18680:19420:0824/221542.202:VERBOSE2:chrome\updater\event_history.cc:265] Emitted a UPDATER_PROCESS END event to the history log
+[18680:19420:0824/221542.202:VERBOSE1:chrome\updater\updater.cc:419] UpdaterMain (--windows-service) returned 0.
+[19292:14776:0824/221542.210:VERBOSE2:chrome\updater\event_history.cc:265] Emitted a UPDATER_PROCESS END event to the history log
+[19292:14776:0824/221542.210:VERBOSE1:chrome\updater\updater.cc:419] UpdaterMain (--crash-handler) returned 0.
+[14724:5972:0824/221542.241:VERBOSE1:chrome\updater\updater.cc:374] Version: 152.0.7933.0, opt, x86, command line: "C:\Program Files (x86)\Google\GoogleUpdater\152.0.7933.0\updater.exe" --system --windows-service --service=update
+[14724:5972:0824/221542.241:VERBOSE1:chrome\updater\updater.cc:377] OS version: 10.0.26200.9168, arch: x86_64, System uptime (seconds): 83639, parent pid: 1216
+[14724:5972:0824/221542.241:VERBOSE1:chrome\updater\updater.cc:382] Available disk space in install directory (C:\Program Files (x86)\Google\GoogleUpdater): 287367028736B (267.631GiB) / 384599846912B (358.187GiB)
+[14724:5972:0824/221542.241:VERBOSE1:chrome\updater\updater.cc:386] Available disk space in temporary directory (C:\Windows\SystemTemp): 287367028736B (267.631GiB) / 384599846912B (358.187GiB)
+[14724:5972:0824/221542.241:VERBOSE1:chrome\updater\util\win_util.cc:583] available: 9351M, total: 19159M, phys: 16G
+[14724:5972:0824/221542.242:VERBOSE2:chrome\updater\event_history.cc:265] Emitted a UPDATER_PROCESS START event to the history log
+[19212:8084:0824/221542.274:VERBOSE1:chrome\updater\updater.cc:374] Version: 152.0.7933.0, opt, x86, command line: "C:\Program Files (x86)\Google\GoogleUpdater\152.0.7933.0\updater.exe" --crash-handler --system "--database=C:\Program Files (x86)\Google\GoogleUpdater\152.0.7933.0\Crashpad" --url=https://clients2.google.com/cr/report --annotation=prod=Update4 --annotation=ver=152.0.7933.0 "--attachment=C:\Program Files (x86)\Google\GoogleUpdater\updater.log" "--attachment=C:\Program Files (x86)\Google\GoogleUpdater\updater_history.jsonl" --initial-client-data=0x2c4,0x2c8,0x2cc,0x2c0,0x2d0,0x1251e40,0x1251e4c,0x1251e58
+[19212:8084:0824/221542.274:VERBOSE1:chrome\updater\updater.cc:377] OS version: 10.0.26200.9168, arch: x86_64, System uptime (seconds): 83639, parent pid: 14724
+[19212:8084:0824/221542.274:VERBOSE1:chrome\updater\updater.cc:382] Available disk space in install directory (C:\Program Files (x86)\Google\GoogleUpdater): 287367024640B (267.631GiB) / 384599846912B (358.187GiB)
+[19212:8084:0824/221542.274:VERBOSE1:chrome\updater\updater.cc:386] Available disk space in temporary directory (C:\Windows\SystemTemp): 287367024640B (267.631GiB) / 384599846912B (358.187GiB)
+[19212:8084:0824/221542.274:VERBOSE1:chrome\updater\updater.cc:393] Parent process command line: "C:\Program Files (x86)\Google\GoogleUpdater\152.0.7933.0\updater.exe" --system --windows-service --service=update
+[19212:8084:0824/221542.274:VERBOSE1:chrome\updater\util\win_util.cc:583] available: 9349M, total: 19159M, phys: 16G
+[19212:8084:0824/221542.275:VERBOSE2:chrome\updater\event_history.cc:265] Emitted a UPDATER_PROCESS START event to the history log
+[14724:5972:0824/221542.276:VERBOSE1:chrome\updater\crash_reporter.cc:124] Crash handler launched and ready.
+[14724:5972:0824/221542.277:VERBOSE1:chrome\updater\crash_client.cc:108] Found 0 completed crash reports
+[14724:5972:0824/221542.277:VERBOSE1:chrome\updater\crash_client.cc:132] Found 0 pending crash reports
+[14724:5972:0824/221542.277:VERBOSE2:chrome\updater\usage_stats_permissions_win.cc:77] usage stats enabled by app {8a69d345-d564-463c-aff1-a69d9e530f96}
+[14724:5972:0824/221542.279:VERBOSE1:chrome\updater\updater.cc:105] Crash reporting initialized.
+[14724:5972:0824/221542.280:VERBOSE1:chrome\updater\updater.cc:155] IsUserAdmin: 1, IsUserNonElevatedAdmin: 0, IsUACOn: 1, IsElevatedWithUACOn: 1, LUA: 1
+[14724:3624:0824/221542.295:VERBOSE2:chrome\updater\app\server\win\updater_service_delegate.cc:63] Running COM server within the Windows Service
+[14724:3624:0824/221542.295:VERBOSE2:chrome\updater\app\app_server.cc:64] ModeCheck
+[14724:3624:0824/221542.295:VERBOSE2:chrome\updater\prefs.cc:113] CreateGlobalPrefsInternal
+[14724:3624:0824/221542.296:VERBOSE1:chrome\updater\prefs.cc:159] UpdaterPrefsImpl (global): C:\Program Files (x86)\Google\GoogleUpdater
+[14724:3624:0824/221542.296:VERBOSE2:chrome\updater\app\app_server.cc:77] This version: 152.0.7933.0, active version: 152.0.7933.0
+[14724:3624:0824/221542.296:VERBOSE1:chrome\updater\win\setup\setup_util.cc:263] AreComInterfacesPresent: scope: System: is_internal: 0
+[14724:3624:0824/221542.303:VERBOSE2:chrome\updater\win\setup\setup_util.cc:284] AreComInterfacesPresent: all interfaces present
+[14724:3624:0824/221542.304:VERBOSE1:chrome\enterprise_companion\device_management_storage\dm_storage_win.cc:242] GetDmToken: token not found.
+[14724:3624:0824/221542.304:VERBOSE1:chrome\enterprise_companion\device_management_storage\dm_storage.cc:218] No valid DM token.
+[14724:18036:0824/221542.304:VERBOSE2:chrome\updater\event_history.cc:265] Emitted a PERSISTED_DATA INSTANT event to the history log
+[14724:10432:0824/221542.304:VERBOSE2:chrome\updater\event_history.cc:265] Emitted a LOAD_POLICY START event to the history log
+[14724:3624:0824/221542.315:VERBOSE1:chrome\updater\policy\service.cc:151] Current effective policies:
+{
+  LastCheckPeriod = 16200 s (Default)
+}
+
+[14724:3624:0824/221542.315:VERBOSE2:chrome\updater\usage_stats_permissions_win.cc:108] Event logging disabled by presence of other apps
+[14724:18036:0824/221542.315:VERBOSE2:chrome\updater\event_history.cc:265] Emitted a LOAD_POLICY END event to the history log
+[14724:19264:0824/221542.323:VERBOSE2:chrome\updater\app\server\win\com_classes.cc:232] RuntimeClassInitialize
+[14724:19264:0824/221542.324:VERBOSE2:chrome\updater\util\win_util.cc:1651] updater::UpdaterImpl::RuntimeClassInitialize: COM client for this COM server has PID: 1580, and has command line: 
+[14724:6168:0824/221542.325:VERBOSE2:chrome\updater\app\app_server_win.cc:263] Stop: COM server is shutting down.
+[14724:3624:0824/221542.326:VERBOSE1:chrome\updater\app\app.cc:52] Shutdown: 0
+[14724:18036:0824/221542.326:VERBOSE1:chrome\updater\prefs.cc:251] Prefs committed.
+[14724:3624:0824/221542.326:VERBOSE1:chrome\updater\prefs.cc:164] ~UpdaterPrefsImpl: C:\Program Files (x86)\Google\GoogleUpdater
+[14724:5972:0824/221542.331:VERBOSE2:chrome\updater\event_history.cc:265] Emitted a UPDATER_PROCESS END event to the history log
+[14724:5972:0824/221542.331:VERBOSE1:chrome\updater\updater.cc:419] UpdaterMain (--windows-service) returned 0.
+[19212:8084:0824/221542.340:VERBOSE2:chrome\updater\event_history.cc:265] Emitted a UPDATER_PROCESS END event to the history log
+[19212:8084:0824/221542.340:VERBOSE1:chrome\updater\updater.cc:419] UpdaterMain (--crash-handler) returned 0.
+[20456:10632:0824/221543.569:VERBOSE1:chrome\updater\updater.cc:374] Version: 152.0.7933.0, opt, x86, command line: "C:\Program Files (x86)\Google\GoogleUpdater\152.0.7933.0\updater.exe" --system --windows-service --service=update
+[20456:10632:0824/221543.570:VERBOSE1:chrome\updater\updater.cc:377] OS version: 10.0.26200.9168, arch: x86_64, System uptime (seconds): 83641, parent pid: 1216
+[20456:10632:0824/221543.570:VERBOSE1:chrome\updater\updater.cc:382] Available disk space in install directory (C:\Program Files (x86)\Google\GoogleUpdater): 287367016448B (267.631GiB) / 384599846912B (358.187GiB)
+[20456:10632:0824/221543.570:VERBOSE1:chrome\updater\updater.cc:386] Available disk space in temporary directory (C:\Windows\SystemTemp): 287367016448B (267.631GiB) / 384599846912B (358.187GiB)
+[20456:10632:0824/221543.570:VERBOSE1:chrome\updater\util\win_util.cc:583] available: 9354M, total: 19159M, phys: 16G
+[20456:10632:0824/221543.570:VERBOSE2:chrome\updater\event_history.cc:265] Emitted a UPDATER_PROCESS START event to the history log
+[11144:19352:0824/221543.611:VERBOSE1:chrome\updater\updater.cc:374] Version: 152.0.7933.0, opt, x86, command line: "C:\Program Files (x86)\Google\GoogleUpdater\152.0.7933.0\updater.exe" --crash-handler --system "--database=C:\Program Files (x86)\Google\GoogleUpdater\152.0.7933.0\Crashpad" --url=https://clients2.google.com/cr/report --annotation=prod=Update4 --annotation=ver=152.0.7933.0 "--attachment=C:\Program Files (x86)\Google\GoogleUpdater\updater.log" "--attachment=C:\Program Files (x86)\Google\GoogleUpdater\updater_history.jsonl" --initial-client-data=0x2b8,0x2bc,0x2c0,0x2b4,0x2c4,0x1251e40,0x1251e4c,0x1251e58
+[11144:19352:0824/221543.611:VERBOSE1:chrome\updater\updater.cc:377] OS version: 10.0.26200.9168, arch: x86_64, System uptime (seconds): 83641, parent pid: 20456
+[11144:19352:0824/221543.611:VERBOSE1:chrome\updater\updater.cc:382] Available disk space in install directory (C:\Program Files (x86)\Google\GoogleUpdater): 287367016448B (267.631GiB) / 384599846912B (358.187GiB)
+[11144:19352:0824/221543.611:VERBOSE1:chrome\updater\updater.cc:386] Available disk space in temporary directory (C:\Windows\SystemTemp): 287367016448B (267.631GiB) / 384599846912B (358.187GiB)
+[11144:19352:0824/221543.6∞µÆ›<xxÔøÛ∂ü'è˛“ç_Âj(2Ulä	qËÄç
+Naå—≥=æıú”/Ö	 Çj®§'U™∫∑RŒ®±[yó¥ãU˙rÙŒûº≥È$†CØÊicµ#‚`·˙Æ?/ç÷PÏÅƒÇAf}£µÅ µeµ∑VISµ)”–`«•„ù1î! :TŸÿe…}Eö-∂ﬁ65*CM‡Ïøé%üÔiûÛ!ﬂ≥*ÌG∆f
+$ Q$,^Ä∫!Ù6ç’∂˝∆ç€ˇâw˝Å=Hâ@mX¿àD4m ÄJÀ BÑ«ñåüÂÙÛéO∑pµz®Iﬁ9£bÌä&öZÆø=Ω„èúÒAÄaÛb˝©„W«Ô2YRõdáAnÜ∞`∑Ü ,Å6µä]D;~‡<I¢•°†$ù]ÆeÙˇÙi∑”2Ì}SäJí„ŒŸ∏ÈÛŒ?7‚x÷«'pËVÕûúoÊ´ah!’Ùn˚nÆ5∂¡¯xm›1$BÑ‘ QBEï§a@Ë»dnˆ{˜;!0Õç!kWS€ÀôújNl‰ä√Wòv&	Ä:Âa`·†A@X¥ ±)ñ0@ãBÅÄ0I:ún;d4’“§dß∑>¬l@; »æ”e≥õ{ ¶Ä»œßãM‹‘Æ$ë€∆°ª5‡%üüFúk9tø$vÅg1à
+.Äƒ<4î!eª∂cwcri~àr`‘Éß±ôHµÄê∞1!Ñ∫é^.¨ˇ÷zKV”‚‚çã5ÀzõzWkiÜ|ÔXH!á>àP "äRZ ¥µ√¢!3©	ö§µ¬"J#ÀÇ‚L…»Íê§BöÇ∫≠=5úê¢†⁄Ÿ@‹W§ (q≥ÕáKGŒ˙‰ºbˆ©QÁp‚ìDw^0k6›g&JÇ)¢iÄ $âJêP˝¬[¥Ö†∂1∂G\k9¥∏Â¸Ã	TØ†:aA= ¬énÏıoÚÌÕÍÄI
+¢4(Íav…n"ÎB*R¥œIZ0’	dí)"ƒ6;f¬ J⁄÷2—
+vg07≥,-F‘≠ßiõäîñf®∏ZÄòà+X8£"1«›‚Î<{NÉkÓ∆çK“HÄ 0¿A
+Åâ+\¢ò)Ÿe‚“W˘7Ôø≥éﬁéﬁâZñ’.QY8Bca5~˚<ˇÕœr∂\ÃûKã◊†{,¨Ëkg(N)Ô-±`h@Ω—ﬁÅûÖƒ\ D3@∆¿≈•.,ë)jâG®7∂UµªÔ37°L#Z®ECæq¸4a]Aî€∏ÂÓù∂µØLA'ª∏;¶ ÇëC2¡mæg¿πÃﬁã4‘/Ù∂Se∞ hâX“⁄F–ëk˜Së=/¶7∂¥é⁄tº8]!œ¸‚ˆ∂2ZV∞¿ä‘Rh∏SOj4˙$ ¥Pu¸ﬁ¬+Ïx‡<ä"êyÂ1˚))I€“bƒJ‚v¶Ú)í–•¡Ï∏-n~ı·]É“R§¡bËº≠8» `7àõû<µéƒÏ!Œ„QoF5i¢8ŒÜM$g¥h[0 â≥CÛgz_Gøæe€û@ H˜`GùıÖ±ç[ChmY—≤°çÖÿ˙B∞·¶SÄöﬁ´…ÿ{Æ>£?x¯G·?˛Âã∑ø˛)ÆL"övDb‡aI  ñπ¨√ì€'÷^D/¿§ç9⁄6òóΩ˝’”£Å⁄c«MÕÎ>D_§( •\ q!,á0@º´Î‘Äá]‚ºÿ¯g¡lQ√Ràõ3“HU‡åˆÔB04Ä ±Ç*Ø˙çªü6∂ÆêãV	j∂ÖäU™;ŒYÛ]&-L\@¥≠
+Ω\†˝˜~≠…◊»bªëC Æ∑NÁÇÁJ~ßÂª∂<2§—	ù ¿D≥äÖÑ»äàù6.cÄÑs˙ÑΩùCáñ¬“ƒ¶Z+œπ√¯KË`ncGg[we·…¡ Lå6Û∏ÇW ≥Ë_(PO˛lí	»X¿§~$‡rC0Ä‡*L	Õ∏(ŸzmıQ¢¬ÇhÖ-$xœ≤«X°Ö∞%é±qõ–—M!ñrüŒÌ›©€r∑/Œ3≠ØÂÏ7R}ãß-“ >ÄHç∂$ ™j&åq.ÃÍΩ58›”L†]k∏M»¢PZH®A[ôßl~j‡î–ÎøÌ»ÆòN®_˘X¿O~S¿Æ…èn≈†ô	Ä&*6{ÄÉí∆ﬁÄáã‡¿Tí(∏∫Ê·b⁄Ëµ≈Ñ I≠Ä
+4]ùzöÜ›Mh9…–—ù}S⁄Lñ’Áﬂ∑Ó«%µ1-}∑…//8Ö-≤8ÇX≈Häuoò#	!r€ó1ßS Pöù™G÷ª„Ä®uQÑÑi∆Ê∑∂˘'&·‚≥VÃ
+¨^jŒ^óÿ$QÑ°FàÉ4I¿≈ á¢*	@ùc“4LEj v%õ’⁄bôáHV ù@ºõπ˝åÕ8„4NY]√∞wi_ê“`˛3_AÎ¬4Œ`°≠:ŒOô˜Œ+X®ùØíqq.Ï2ˆ¡VR®E	û∫Î}Wp:µA°#j–ë%ÜO›≠ørp:≈q!ÿ¬¨Ê\ºÚ?è˛oâÌ `'
+è^Ä¬£#¡,;®B™∫()!WD…¡F9§€"Lë- ±n‹˛º=ã%H3bÜŒ∆Z•†Ñm?ñ{ kêÕÀÿ¬Ü7∫ÿâc3ú–  PÑø#)4Ê⁄æº¶¨	 KiΩ4ı˙ŸÓ‘É±µA P1—x~]òÄ*I∏®=àã€ÚëX¸gÊ˝›/∑›∂â¶œ‚A ·‡h@ÓføõÚÄ
+@@‡23ê"¥‘±,ñ,pa†∞sÊ¸>`AKJ±d5&!Q∂◊ë{ö0Y ÅÖKÒbkw¨˙ v]–vf[7@ê!X∏†ù|_;˜iñ °À`º}∂≤ê∆4 aLÅt)∑Ωrbo-[UÁ LCTí¥¬˜∫Û‰w[Û˜~Â_˛ÏÔ∑Ì⁄¥È¬ó"¡®Q4—äÕ
+˙xÂ’CÔÕ7˛1<“Õâmãb\@WÂ``ëbEã∫DpÀ’:B‡"À¸”;>f2BF†ÜR“ZV7R7Ÿ aÙÖ¶ãW°¬áÑ "%Ó÷`˘ı≈ÆÌ‰yp&T–F.ã°˚ZÔ;9N18 S,Ω◊‹B@»SYFBR[ù·ÎΩô‰ÖsÀ+2@ëô	^„ÑìkÎo⁄Ø¸cf¯.#ø„Õu◊{.IE å É»›Êﬂ≥/i˘≤ˇ}ÁÛÚŸf%@) ú3áÃ%0``Ì‘!À7+‘
+Fˆ»F˝Ù{˙4iA,°E	$ÍòO∆–1iÛ2è–48¡)9et±7?ô˛±Âû,nŸi¬P·ú∆bÇ˘º{X‰éµJù∫Õˆxá$ùqCmt°ÖH/ÀÂîKz’Î` ¡òã¨Õ⁄µı;ˇ˘¯°Øèi@;;èCÖÄ*LH ºÒVÃYÁ∑¸‹Ú®•ÛÑ—n„Q%±•°@‘ÎËÈHDAÀj Æ#åë°ê– ñ}‡Ô$*AMÁˆÚ]≠Dïö∑ÅπxAS|ï…ÉÌ]Ò€gœÈ@ØÑ7úL;qìli¬"CHBáz-ﬂˇ”s7·lr¥∏@’≠€R=£©tRùhµ√íÀ¡>±EÅ á‡† ÄK$∆¯¢*∆NËE¬«a¡sfﬁÀ'}™Åò- [≤®±Tí€ÍÜ≠ﬁÅô‚æ-›'±¨.Ÿ¸∆ö∂â∑¥∑n xès@»®ÅÄEm SÖÀ≤
+—ÜﬂPbSER‡∂fó•a o∞˚÷ﬁ8πWŸåΩ!êABUI"KëÜ"k-Îﬂ„’OíFªcb”&Ë u®•n˙∆À
+/aa6Q–F›‘!ƒÇ›ÄãåMô∑*C≥ÀPÅ§Í’bÇ|“ﬁÀÙ≠}º 3◊»bÑFLcAêJ;„–w|›¨Œ|∂–pc‹6∫cp-“ÇÖSä§Í≈¡
+–DB∞!Ñà-íC7≠m7mep·“≈ÜÆŒ¢IHIööWeÙπMcÔ⁄^ey]e√e86Yô2)R¬é[2bÃjGçÒΩDóë∞–Í
+ud“ÅlœåÁ7aµ1n·Ññ‹\°e°ÉDeÉ	¿H ó*ÜP ”≤mﬁmbØπı— F7rË≠»aå§¿PUàë∂ß•π√πÒgçN‘1b∆J∂9R/)å~HBEH°:+ü;c8©\Öb÷H®Ÿ"–H •¥“,¿b‚˘¸ËKaÅàU∂Üœ}≤€_ª-ª£åk µìz∞√Ev∑.LYSx 6àj!‚6m:mÉhKu¥∑{sÅ+xIÇ”˛U˙ÒØ–ñÒá1˚J4zÄ±âLÚ&k§äP4∫≠ª¨CN>ÿ2µwﬁê÷4@ïîax be2‡ÜÏÒÈ8M{ÄD±\í#&©G&—∂8©*SÜsñíBMj∆êÿí*bKß–∞íË±ù
+àƒÜ˘xÁA±@*o©|B“hiJ"ï,#"LC†RPlKDÂEX¨Ä`I⁄4T±¬†=ìYHZñÅqXëbï¶]Ã2WAÇT&?çb*≤22,›‘‚∂πÛ÷ S,˛7ê;^ÏéAö*"	 TANckœ1˝Tª¡ƒ”ôR¥-ó±@7ä]˚	»A
+°äA Sﬂ1d,òô”Œk≤¥D1$@ÅJx3◊-¨zÉë¢FŸ‡”-ÔÑWôTÕM=_∞ÇQC!Äëñä@™!*±ªÕHñ¶î—í M’⁄Ë∂_üì›0P|Èµ§€B€6‡
+öm∂®YHj˙©¥2àQ!î¶PãÎâªûÌÉ»/3˜‹˚ﬂëèc£œ] SU(â)âÑj7Æ•eújWùO=¡∫Oñe¡ú¨ÊÀàÌ”µÍﬁ€^[%Ñ’≤‡¬.dÏ(/Ç)!r1,)ÇBq⁄Àâ'Qó‘à¢
+A±\æc$ï$@¿FÓï>}9ÔjQ&	Ä@1!D$ Z(  à¿A≈UÙ$Áe±≠∏ô∑±≈HÇ¥±…–ÊÚﬁ¸R{$5$t≤Ù“À§cõÅa7–TñŒ∫∂‡b8∏Ï¨-¢˚ÿK>∞rÔó2s‡ßû‰#>z¨Î êÖC	EHeumág˛»gòfãΩrØ…«ÚÉ3i‘hs`5‘¥ãSX¢%êã{,WÆÚ ´˛2ºãÄcàññ⁄ª	Ô∞ë´ÕÔªª¶Ã‹ÃKh— 0cül”%. î‡Èñ%ater.cc:386] Available disk space in temporary directory (C:\Windows\SystemTemp): 287371296768B (267.635GiB) / 384599846912B (358.187GiB)
+[5744:2312:0824/221548.801:VERBOSE1:chrome\updater\updater.cc:393] Parent process command line: "C:\Program Files (x86)\Google\GoogleUpdater\152.0.7933.0\updater.exe" --system --windows-service --service=update
+[5744:2312:0824/221548.801:VERBOSE1:chrome\updater\util\win_util.cc:583] available: 9328M, total: 19159M, phys: 16G
+[5744:2312:0824/221548.802:VERBOSE2:chrome\updater\event_history.cc:265] Emitted a UPDATER_PROCESS START event to the history log
+[5208:20192:0824/221548.804:VERBOSE1:chrome\updater\crash_reporter.cc:124] Crash handler launched and ready.
+[5208:20192:0824/221548.805:VERBOSE1:chrome\updater\crash_client.cc:108] Found 0 completed crash reports
+[5208:20192:0824/221548.805:VERBOSE1:chrome\updater\crash_client.cc:132] Found 0 pending crash reports
+[5208:20192:0824/221548.805:VERBOSE2:chrome\updater\usage_stats_permissions_win.cc:77] usage stats enabled by app {8a69d345-d564-463c-aff1-a69d9e530f96}
+[5208:20192:0824/221548.806:VERBOSE1:chrome\updater\updater.cc:105] Crash reporting initialized.
+[5208:20192:0824/221548.808:VERBOSE1:chrome\updater\updater.cc:155] IsUserAdmin: 1, IsUserNonElevatedAdmin: 0, IsUACOn: 1, IsElevatedWithUACOn: 1, LUA: 1
+[5208:13108:0824/221548.829:VERBOSE2:chrome\updater\app\server\win\updater_service_delegate.cc:63] Running COM server within the Windows Service
+[5208:13108:0824/221548.829:VERBOSE2:chrome\updater\app\app_server.cc:64] ModeCheck
+[5208:13108:0824/221548.829:VERBOSE2:chrome\updater\prefs.cc:113] CreateGlobalPrefsInternal
+[5208:13108:0824/221548.830:VERBOSE1:chrome\updater\prefs.cc:159] UpdaterPrefsImpl (global): C:\Program Files (x86)\Google\GoogleUpdater
+[5208:13108:0824/221548.830:VERBOSE2:chrome\updater\app\app_server.cc:77] This version: 152.0.7933.0, active version: 152.0.7933.0
+[5208:13108:0824/221548.830:VERBOSE1:chrome\updater\win\setup\setup_util.cc:263] AreComInterfacesPresent: scope: System: is_internal: 0
+[5208:13108:0824/221548.835:VERBOSE2:chrome\updater\win\setup\setup_util.cc:284] AreComInterfacesPresent: all interfaces present
+[5208:13108:0824/221548.835:VERBOSE1:chrome\enterprise_companion\device_management_storage\dm_storage_win.cc:242] GetDmToken: token not found.
+[5208:13108:0824/221548.835:VERBOSE1:chrome\enterprise_companion\device_management_storage\dm_storage.cc:218] No valid DM token.
+[5208:6340:0824/221548.835:VERBOSE2:chrome\updater\event_history.cc:265] Emitted a PERSISTED_DATA INSTANT event to the history log
+[5208:6340:0824/221548.835:VERBOSE2:chrome\updater\event_history.cc:265] Emitted a LOAD_POLICY START event to the history log
+[5208:13108:0824/221548.843:VERBOSE1:chrome\updater\policy\service.cc:151] Current effective policies:
+{
+  LastCheckPeriod = 16200 s (Default)
+}
+
+[5208:6340:0824/221548.843:VERBOSE2:chrome\updater\event_history.cc:265] Emitted a LOAD_POLICY END event to the history log
+[5208:13108:0824/221548.843:VERBOSE2:chrome\updater\usage_stats_permissions_win.cc:108] Event logging disabled by presence of other apps
+[5208:17924:0824/221548.849:VERBOSE2:chrome\updater\app\server\win\com_classes.cc:232] RuntimeClassInitialize
+[5208:17924:0824/221548.850:VERBOSE2:chrome\updater\util\win_util.cc:1651] updater::UpdaterImpl::RuntimeClassInitialize: COM client for this COM server has PID: 1580, and has command line: 
+[5208:17924:0824/221548.852:VERBOSE2:chrome\updater\app\app_server_win.cc:263] Stop: COM server is shutting down.
+[5208:13108:0824/221548.852:VERBOSE1:chrome\updater\app\server\update_service_stub.cc:405] UpdateService client disconnected.
+[5208:13108:0824/221548.852:VERBOSE1:chrome\updater\app\app.cc:52] Shutdown: 0
+[5208:18788:0824/221548.853:VERBOSE1:chrome\updater\prefs.cc:251] Prefs committed.
+[5208:13108:0824/221548.853:VERBOSE1:chrome\updater\prefs.cc:164] ~UpdaterPrefsImpl: C:\Program Files (x86)\Google\GoogleUpdater
+[5208:20192:0824/221548.857:VERBOSE2:chrome\updater\event_history.cc:265] Emitted a UPDATER_PROCESS END event to the history log
+[5208:20192:0824/221548.857:VERBOSE1:chrome\updater\updater.cc:419] UpdaterMain (--windows-service) returned 0.
+[5744:2312:0824/221548.865:VERBOSE2:chrome\updater\event_history.cc:265] Emitted a UPDATER_PROCESS END event to the history log
+[5744:2312:0824/221548.865:VERBOSE1:chrome\updater\updater.cc:419] UpdaterMain (--crash-handler) returned 0.
+[18636:11580:0824/221549.811:VERBOSE1:chrome\updater\updater.cc:374] Version: 152.0.7933.0, opt, x86, command line: "C:\Program Files (x86)\Google\GoogleUpdater\152.0.7933.0\updater.exe" --system --windows-service --service=update
+[18636:11580:0824/221549.811:VERBOSE1:chrome\updater\updater.cc:377] OS version: 10.0.26200.9168, arch: x86_64, System uptime (seconds): 83647, parent pid: 1216
+[18636:11580:0824/221549.811:VERBOSE1:chrome\updater\updater.cc:382] Available disk space in install directory (C:\Program Files (x86)\Google\GoogleUpdater): 287371284480B (267.635GiB) / 384599846912B (358.187GiB)
+[18636:11580:0824/221549.811:VERBOSE1:chrome\updater\updater.cc:386] Available disk space in temporary directory (C:\Windows\SystemTemp): 287371284480B (267.635GiB) / 384599846912B (358.187GiB)
+[18636:11580:0824/221549.811:VERBOSE1:chrome\updater\util\win_util.cc:583] available: 9329M, total: 19159M, phys: 16G
+[18636:11580:0824/221549.811:VERBOSE2:chrome\updater\event_history.cc:265] Emitted a UPDATER_PROCESS START event to the history log
+[16968:5340:0824/221549.864:VERBOSE1:chrome\updater\updater.cc:374] Version: 152.0.7933.0, opt, x86, command line: "C:\Program Files (x86)\Google\GoogleUpdater\152.0.7933.0\updater.exe" --crash-handler --system "--database=C:\Program Files (x86)\Google\GoogleUpdater\152.0.7933.0\Crashpad" --url=https://clients2.google.com/cr/report --annotation=prod=Update4 --annotation=ver=152.0.7933.0 "--attachment=C:\Program Files (x86)\Google\GoogleUpdater\updater.log" "--attachment=C:\Program Files (x86)\Google\GoogleUpdater\updater_history.jsonl" --initial-client-data=0x2c0,0x2c4,0x2c8,0x2bc,0x2cc,0x1251e40,0x1251e4c,0x1251e58
+[16968:5340:0824/221549.864:VERBOSE1:chrome\updater\updater.cc:377] OS version: 10.0.26200.9168, arch: x86_64, System uptime (seconds): 83647, parent pid: 18636
+[16968:5340:0824/221549.864:VERBOSE1:chrome\updater\updater.cc:382] Available disk space in install directory (C:\Program Files (x86)\Google\GoogleUpdater): 287371284480B (267.635GiB) / 384599846912B (358.187GiB)
+[16968:5340:0824/221549.864:VERBOSE1:chrome\updater\updater.cc:386] Available disk space in temporary directory (C:\Windows\SystemTemp): 287371284480B (267.635GiB) / 384599846912B (358.187GiB)
+[16968:5340:0824/221549.864:VERBOSE1:chrome\updater\updater.cc:393] Parent process command line: "C:\Program Files (x86)\Google\GoogleUpdater\152.0.7933.0\updater.exe" --system --windows-service --service=update
+[16968:5340:0824/221549.864:VERBOSE1:chrome\updater\util\win_util.cc:583] available: 9327M, total: 19159M, phys: 16G
+[16968:5340:0824/221549.865:VERBOSE2:chrome\updater\event_history.cc:265] Emitted a UPDATER_PROCESS START event to the history log
+[18636:11580:0824/221549.867:VERBOSE1:chrome\updater\crash_reporter.cc:124] Crash handler launched and ready.
+[18636:11580:0824/221549.868:VERBOSE1:chrome\updater\crash_client.cc:108] Found 0 completed crash reports
+[18636:11580:0824/221549.868:VERBOSE1:chrome\updater\crash_client.cc:132] Found 0 pending crash reports
+[18636:11580:0824/221549.869:VERBOSE2:chrome\updater\usage_stats_permissions_win.cc:77] usage stats enabled by app {8a69d345-d564-463c-aff1-a69d9e530f96}
+[18636:11580:0824/221549.872:VERBOSE1:chrome\updater\updater.cc:105] Crash reporting initialized.
+[18636:11580:0824/221549.875:VERBOSE1:chrome\updater\updater.cc:155] IsUserAdmin: 1, IsUserNonElevatedAdmin: 0, IsUACOn: 1, IsElevatedWithUACOn: 1, LUA: 1
+[18636:17076:0824/221549.894:VERBOSE2:chrome\updater\app\server\win\updater_service_delegate.cc:63] Running COM server within the Windows Service
+[18636:17076:0824/221549.894:VERBOSE2:chrome\updater\app\app_server.cc:64] ModeCheck
+[18636:17076:0824/221549.894:VERBOSE2:chrome\updater\prefs.cc:113] CreateGlobalPrefsInternal
+[18636:17076:0824/221549.895:VERBOSE1:chrome\updater\prefs.cc:159] UpdaterPrefsImpl (global): C:\Program Files (x86)\Google\GoogleUpdater
+[18636:17076:0824/221549.895:VERBOSE2:chrome\updater\app\app_server.cc:77] This version: 152.0.7933.0, active version: 152.0.7933.0
+[18636:17076:0824/221549.895:VERBOSE1:chrome\updater\win\setup\setup_util.cc:263] AreComInterfacesPresent: scope: System: is_internal: 0
+[18636:17076:0824/221549.901:VERBOSE2:chrome\updater\win\setup\setup_util.cc:284] AreComInterfacesPresent: all interfaces present
+[18636:17076:0824/221549.901:VERBOSE1:chrome\enterprise_companion\device_management_storage\dm_storage_win.cc:242] GetDmToken: token not found.
+[18636:17076:0824/221549.901:VERBOSE1:chrome\enterprise_companion\device_management_storage\dm_storage.cc:218] No valid DM token.
+[18636:2424:0824/221549.901:VERBOSE2:chrome\updater\event_history.cc:265] Emitted a PERSISTED_DATA INSTANT event to the history log
+[18636:2424:0824/221549.902:VERBOSE2:chrome\updater\event_history.cc:265] Emitted a LOAD_POLICY START event to the history log
+[18636:17076:0824/221549.913:VERBOSE1:chrome\updater\policy\service.cc:151] Current effective policies:
+{
+  LastCheckPeriod = 16200 s (Default)
+}
+
+[18636:17076:0824/221549.913:VERBOSE2:chrome\updater\usage_stats_permissions_win.cc:108] Event logging disabled by presence of other apps
+[18636:2424:0824/221549.913:VERBOSE2:chrome\updater\event_history.cc:265] Emitted a LOAD_POLICY END event to the history log
+[18636:15344:0824/221549.924:VERBOSE2:chrome\updater\app\server\win\com_classes.cc:232] RuntimeClassInitialize
+[18636:15344:0824/221549.924:VERBOSE2:chrome\updater\util\win_util.cc:1651] updater::UpdaterImpl::RuntimeClassInitialize: COM client for this COM server has PID: 1580, and has command line: 
+[18636:15344:0824/221549.925:VERBOSE2:chrome\updater\app\server\win\com_classes.cc:232] RuntimeClassInitialize
+[18636:15344:0824/221549.925:VERBOSE2:chrome\updater\util\win_util.cc:1651] updater::UpdaterImpl::RuntimeClassInitialize: COM client for this COM server has PID: 1580, and has command line: 
+[18636:14204:0824/221549.926:VERBOSE2:chrome\updater\app\app_server_win.cc:263] Stop: COM server is shutting down.
+[18636:17076:0824/221549.927:VERBOSE1:chrome\updater\app\app.cc:52] Shutdown: 0
+[18636:16888:0824/221549.927:VERBOSE1:chrome\updater\prefs.cc:251] Prefs committed.
+[18636:17076:0824/221549.928:VERBOSE1:chrome\updater\prefs.cc:164] ~UpdaterPrefsImpl: C:\Program Files (x86)\Google\GoogleUpdater
+[18636:11580:0824/221549.933:VERBOSE2:chrome\updater\event_history.cc:265] Emitted a UPDATER_PROCESS END event to the history log
+[18636:11580:0824/221549.933:VERBOSE1:chrome\updater\updater.cc:419] UpdaterMain (--windows-service) returned 0.
+[16968:5340:0824/221549.945:VERBOSE2:chrome\updater\event_history.cc:265] Emitted a UPDATER_PROCESS END event to the history log
+[16968:5340:0824/221549.945:VERBOSE1:chrome\updater\updater.cc:419] UpdaterMain (--crash-handler) returned 0.
+[13880:3856:0824/221550.892:VERBOSE1:chrome\updater\updater.cc:374] Version: 152.0.7933.0, opt, x86, command line: "C:\Program Files (x86)\Google\GoogleUpdater\152.0.7933.0\updater.exe" --system --windows-service --service=update
+[13880:3856:0824/221550.892:VERBOSE1:chrome\updater\updater.cc:377] OS version: 10.0.26200.9168, arch: x86_64, System uptime (seconds): 83648, parent pid: 1216
+[13880:3856:0824/221550.893:VERBOSE1:chrome\updater\updater.cc:382] Available disk space in install directory (C:\Program Files (x86)\Google\GoogleUpdater): 287371276288B (267.635GiB) / 384599846912B (358.187GiB)
+[13880:3856:0824/221550.893:VERBOSE1:chrome\updater\updater.cc:386] Available disk space in temporary directory (C:\Windows\SystemTemp): 287371276288B (267.635GiB) / 384599846912B (358.187GiB)
+[13880:3856:0824/221550.893:VERBOSE1:chrome\updater\util\win_util.cc:583] available: 9334M, total: 19159M, phys: 16G
+[13880:3856:0824/221550.893:VERBOSE2:chrome\updater\event_history.cc:265] Emitted a UPDATER_PROCESS START event to the history log
+[18964:19120:0824/221550.939:VERBOSE1:chrome\updater\updater.cc:374] Version: 152.0.7933.0, opt, x86, command line: "C:\Program Files (x86)\Google\GoogleUpdater\152.0.7933.0\updater.exe" --crash-handler --system "--database=C:\Program Files (x86)\Google\GoogleUpdater\152.0.7933.0\Crashpad" --url=https://clients2.google.com/cr/report --annotation=prod=Update4 --annotation=ver=152.0.7933.0 "--attachment=C:\Program Files (x86)\Google\GoogleUpdater\updater.log" "--attachment=C:\Program Files (x86)\Google\GoogleUpdater\updater_history.jsonl" --initial-client-data=0x2d0,0x2d4,0x2d8,0x2cc,0x2dc,0x1251e40,0x1251e4c,0x1251e58
+[18964:19120:0824/221550.
