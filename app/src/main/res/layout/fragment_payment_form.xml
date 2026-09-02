@@ -156,7 +156,21 @@
 
         />
 
+    <ProgressBar
+        android:id="@+id/paymentProgress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        />
 
+    <TextView
+        android:id="@+id/tvPaymentProcessing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/payment_processing"
+        android:visibility="gone"
+
+        />
 
     <Button
         android:id="@+id/btnProceed"
@@ -164,11 +178,8 @@
         android:layout_height="wrap_content"
         android:text="@string/proceed"
         />
-<!--    <Button-->
-<!--        android:id="@+id/btnCancel"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="Cancel"-->
+
+
 
 </LinearLayout>
     </ScrollView>

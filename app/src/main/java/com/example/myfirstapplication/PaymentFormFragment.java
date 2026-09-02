@@ -1,10 +1,13 @@
 package com.example.myfirstapplication;
 
 import android.annotation.SuppressLint;
+import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.ServiceConnection;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.os.RemoteException;
@@ -37,6 +40,7 @@ public class PaymentFormFragment extends Fragment {
     private IPaymentService paymentService;
     private boolean isBound = false;
     private FragmentPaymentFormBinding binding;
+    private static final String ACTION_PAYMENT_FINISHED = "com.example.myfirstapplication.PAYMENT_FINISHED";
 
 
 
@@ -75,6 +79,12 @@ public class PaymentFormFragment extends Fragment {
                 Context.BIND_AUTO_CREATE);
         Log.d("AIDL_CLIENT", "bindService result = " + result
         );
+        IntentFilter filter = new IntentFilter(ACTION_PAYMENT_FINISHED);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            requireContext().registerReceiver(paymentFinishedReceiver,
+                    filter,
+                    Context.RECEIVER_NOT_EXPORTED);
+        }
 
     }
 
@@ -86,8 +96,17 @@ public class PaymentFormFragment extends Fragment {
             requireContext().unbindService(serviceConnection);
             isBound = false;
         }
-
+        requireContext().unregisterReceiver(paymentFinishedReceiver);
     }
+
+    private final BroadcastReceiver paymentFinishedReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if(ACTION_PAYMENT_FINISHED.equals(intent.getAction())){
+                hidePaymentLoading();
+            }
+        }
+    };
 
     @Override
     public View onCreateView(
@@ -136,6 +155,10 @@ public class PaymentFormFragment extends Fragment {
 
        // Button btnProceed = view.findViewById(R.id.btnProceed);
         binding.btnProceed.setOnClickListener(v->{
+
+          showPaymentLoading();
+
+
             if(binding.etAmount.getText().toString().trim().isEmpty() ||
                     binding.etCardNumber.getText().toString().trim().isEmpty()||
                     binding.etCardHolderName.getText().toString().trim().isEmpty()||
@@ -259,6 +282,7 @@ public class PaymentFormFragment extends Fragment {
 
         });
 
+
         binding.etExpiryDate.addTextChangedListener(new TextWatcher() {
             private String current = "";
 
@@ -360,5 +384,16 @@ public class PaymentFormFragment extends Fragment {
 
             }
         });
+    }
+
+    private void showPaymentLoading(){
+        binding.btnProceed.setEnabled(false);
+        binding.paymentProgress.setVisibility(View.VISIBLE);
+        binding.tvPaymentProcessing.setVisibility(View.VISIBLE);
+    }
+    private void hidePaymentLoading() {
+        binding.btnProceed.setEnabled(true);
+        binding.paymentProgress.setVisibility(View.GONE);
+        binding.tvPaymentProcessing.setVisibility(View.GONE);
     }
 }
