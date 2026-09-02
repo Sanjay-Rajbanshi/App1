@@ -9,8 +9,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.util.Log;
-import android.widget.Button;
-import android.widget.ImageButton;
 
 import androidx.activity.EdgeToEdge;
 import androidx.activity.OnBackPressedCallback;
@@ -25,6 +23,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import com.example.myapplication2.IPaymentService;
+import com.example.myfirstapplication.databinding.ActivityMainBinding;
 
 @RequiresApi(api = Build.VERSION_CODES.TIRAMISU)
 public class MainActivity extends AppCompatActivity {
@@ -32,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
 private IPaymentService paymentService;
 private boolean isBound = false;
 
-public IPaymentService getPaymentService(){
+    public IPaymentService getPaymentService(){
     return paymentService;
 }
 
@@ -43,6 +42,11 @@ private final ServiceConnection serviceConnection = new ServiceConnection() {
         isBound = true;
 
         Log.d("AIDL", "Connected to payment service");
+        Fragment currentFragment = getSupportFragmentManager()
+                .findFragmentById(R.id.fragmentContainerView);
+        if(currentFragment instanceof TransactionHistoryFragment){
+            ((TransactionHistoryFragment) currentFragment).onPaymentServiceConnected(paymentService);
+        }
     }
 
     @Override
@@ -81,48 +85,59 @@ protected void onStop(){
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
-        if (getIntent().getBooleanExtra("openHistory", false)){
-            getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.fragmentContainerView,
-                            new TransactionHistoryFragment())
-                    .commit();
+        if(savedInstanceState == null){
+            if(getIntent().getBooleanExtra("openHistory", false)){
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.fragmentContainerView,
+                                new TransactionHistoryFragment())
+                        .commit();
+            }
+            else {
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.fragmentContainerView,
+                                new HomeFragment())
+                        .commit();
+            }
         }
 
-        getSupportFragmentManager().beginTransaction()
+
+//Home button
+
+        ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+        binding.btnHome.setOnClickListener(v -> getSupportFragmentManager()
+                .beginTransaction()
                 .replace(R.id.fragmentContainerView,
-                        new TransactionHistoryFragment())
-                .commit();
+                        HomeFragment.class,
+                        null)
+                .setReorderingAllowed(true)
+                .commit());
 
-        Button btn_Home = findViewById(R.id.btnHome);
-        btn_Home.setOnClickListener(v -> {
 
-//                this is fragment manager
+        //payment button
+
+//        inflate the layout
+
+
+// access the button safely using binding object
+        binding.btnPayment.setOnClickListener(v->{
             FragmentManager fragmentManager = getSupportFragmentManager();
             fragmentManager.beginTransaction()
-                    .replace(R.id.fragmentContainerView, HomeFragment.class, null)
-                    .setReorderingAllowed(true)
-
-                    .commit();
-
-        });
-
-
-        Button  btnPayment = findViewById(R.id.btnPayment);
-
-        btnPayment.setOnClickListener(v -> {
-//            this fragment manager will manage this fragment
-            FragmentManager fragmentManager = getSupportFragmentManager();
-            fragmentManager.beginTransaction()
-                    .replace(R.id.fragmentContainerView, PaymentFormFragment.class, null)
+                    .replace(R.id.fragmentContainerView, PaymentFormFragment.class, null )
                     .setReorderingAllowed(true)
                     .commit();
         });
 
 
 
-        ImageButton imgBtn = findViewById(R.id.btnPaymentHistory);
-        imgBtn.setOnClickListener(v -> {
+
+
+//history button
+//        ImageButton imgBtn = findViewById(R.id.btnPaymentHistory);
+
+       binding.btnPaymentHistory.setOnClickListener(v -> {
             FragmentManager fragmentManager = getSupportFragmentManager();
           fragmentManager.beginTransaction()
                  .replace(R.id.fragmentContainerView, TransactionHistoryFragment.class, null)
@@ -132,7 +147,7 @@ protected void onStop(){
 
 
         });
-
+//back button
         getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
             @Override
             public void handleOnBackPressed() {
@@ -153,16 +168,10 @@ protected void onStop(){
             }
         });
 
-if (getIntent().getBooleanExtra("openHistory", false)){
-    getSupportFragmentManager()
-            .beginTransaction()
-            .replace(R.id.fragmentContainerView,
-                    new TransactionHistoryFragment())
-            .commit();
-}
 
 
 
+//notification permission
 
         if (ContextCompat.checkSelfPermission(
                 this,

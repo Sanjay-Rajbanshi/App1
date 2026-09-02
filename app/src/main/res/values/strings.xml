@@ -6,4 +6,12 @@
     <string name="payment">Payment</string>
     <string name="transaction_history">Transaction History</string>
     <string name="delete">Delete</string>
+    <string name="amount">Amount</string>
+    <string name="card_number">Card Number</string>
+    <string name="card_holder_name">Card Holder Name</string>
+    <string name="cvv">CVV</string>
+    <string name="expiry_date">Expiry Date</string>
+    <string name="mm_yy">MM/YY</string>
+    <string name="remarks">Remarks</string>
+    <string name="proceed">Proceed</string>
 </resources>

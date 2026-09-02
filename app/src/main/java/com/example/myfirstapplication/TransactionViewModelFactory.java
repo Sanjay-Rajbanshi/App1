@@ -14,6 +14,7 @@ public class TransactionViewModelFactory implements ViewModelProvider.Factory {
     @Override
     public <T extends ViewModel> T create(@NonNull  Class<T> modelClass){
         if(modelClass.isAssignableFrom(TransactionViewModel.class)){
+            //noinspection unchecked
             return (T) new TransactionViewModel(transactionRepository);
         }
         throw new IllegalStateException("Unknown view model clss");

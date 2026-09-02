@@ -1,5 +1,6 @@
 package com.example.myfirstapplication;
 
+import android.annotation.SuppressLint;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -20,6 +21,7 @@ import androidx.fragment.app.Fragment;
 import android.text.TextWatcher;
 
 import com.example.myapplication2.IPaymentService;
+import com.example.myfirstapplication.databinding.FragmentPaymentFormBinding;
 
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
@@ -30,10 +32,11 @@ public class PaymentFormFragment extends Fragment {
 
 
 
-    private EditText edtAmount, edtCardNo, edtCardHolderName, edtCvv, edtExpiryDate, edtRemarks;
+//    private EditText edtAmount, edtCardNo, edtCardHolderName, edtCvv, edtExpiryDate, edtRemarks;
 
     private IPaymentService paymentService;
     private boolean isBound = false;
+    private FragmentPaymentFormBinding binding;
 
 
 
@@ -91,43 +94,60 @@ public class PaymentFormFragment extends Fragment {
             @NonNull LayoutInflater inflater,
             ViewGroup container,
             Bundle savedInstanceState) {
+        //layout inflate
+        binding = FragmentPaymentFormBinding.inflate(getLayoutInflater());
+        return binding.getRoot();
 
-        return inflater.inflate(
-                R.layout.fragment_payment_form,
-                container,
-                false
-        );
+//        return inflater.inflate(
+//                R.layout.fragment_payment_form,
+//                container,
+//                false
+//        );
     }
 
 
+    @SuppressLint("SetTextI18n")
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        edtAmount = view.findViewById(R.id.etAmount);
-        edtAmount.setText("Rs. ");
-        edtAmount.setSelection(edtAmount.length());
-        edtCardNo = view.findViewById(R.id.etCardNumber);
-        edtCardHolderName = view.findViewById(R.id.etCardHolderName);
-        edtCvv = view.findViewById(R.id.etCvv);
-        edtExpiryDate = view.findViewById(R.id.etExpiryDate);
-        edtRemarks = view.findViewById(R.id.etRemarks);
+
+
+//        edtAmount = view.findViewById(R.id.etAmount);
+//        edtAmount.setText("Rs. ");
+//        edtAmount.setSelection(edtAmount.length());
+//        edtCardNo = view.findViewById(R.id.etCardNumber);
+//        edtCardHolderName = view.findViewById(R.id.etCardHolderName);
+//        edtCvv = view.findViewById(R.id.etCvv);
+//        edtExpiryDate = view.findViewById(R.id.etExpiryDate);
+//        edtRemarks = view.findViewById(R.id.etRemarks);
+
+        binding.etAmount.setText("Rs. ");
+        binding.etAmount.setSelection(binding.etAmount.length());
+//        String cardNumber = binding.etCardNumber.getText().toString();
+//        String cardHolderName = binding.etCardHolderName.getText().toString();
+//        String cvv = binding.etCvv.getText().toString();
+//        String expiryDate = binding.etExpiryDate.getText().toString();
+//        String remarks = binding.etRemarks.getText().toString();
 
 
 
-        Button btnProceed = view.findViewById(R.id.btnProceed);
-        btnProceed.setOnClickListener(v->{
-            if(edtAmount.getText().toString().trim().isEmpty() ||
-                    edtCardNo.getText().toString().trim().isEmpty()||
-                    edtCardHolderName.getText().toString().trim().isEmpty()||
-                    edtCvv.getText().toString().trim().isEmpty()||
-                    edtExpiryDate.getText().toString().trim().isEmpty() ||
-                    edtRemarks.getText().toString().trim().isEmpty()
+
+
+
+       // Button btnProceed = view.findViewById(R.id.btnProceed);
+        binding.btnProceed.setOnClickListener(v->{
+            if(binding.etAmount.getText().toString().trim().isEmpty() ||
+                    binding.etCardNumber.getText().toString().trim().isEmpty()||
+                    binding.etCardHolderName.getText().toString().trim().isEmpty()||
+                    binding.etCvv.getText().toString().trim().isEmpty()||
+                    binding.etExpiryDate.getText().toString().trim().isEmpty() ||
+                    binding.etRemarks.getText().toString().trim().isEmpty()
             ){
                 Toast.makeText(requireContext(), "Please fill all the field", Toast.LENGTH_SHORT).show();
                 return;
             }
 
-            String amount = edtAmount.getText().toString();
+            String amount = binding.etAmount.getText().toString();
 
             String formattedAmount = amount
                     .replace("Rs.", "")
@@ -140,63 +160,63 @@ public class PaymentFormFragment extends Fragment {
                 amountValue = Double.parseDouble(formattedAmount);
 
             } catch (NumberFormatException e){
-                edtAmount.setError("Enter a valid amount");
-                edtAmount.requestFocus();
+                binding.etAmount.setError("Enter a valid amount");
+                binding.etAmount.requestFocus();
                 return;
             }
 
             if(amountValue <=0){
-                edtAmount.setError("Amount must be greater than 0");
-                edtAmount.requestFocus();
+                binding.etAmount.setError("Amount must be greater than 0");
+                binding.etAmount.requestFocus();
                 return;
             }
 
 
-            String cardNo = edtCardNo.getText().toString();
+            String cardNo = binding.etCardNumber.getText().toString();
             if (!cardNo.matches("\\d{16}")) {
-                edtCardNo.setError("Card number must be 16 digits");
-                edtCardNo.requestFocus();
+                binding.etCardNumber.setError("Card number must be 16 digits");
+                binding.etCardNumber.requestFocus();
                 return;
             }
 
 
-            String cardHolderName = edtCardHolderName.getText().toString();
-            if(edtCardHolderName.length()<3){
-                edtCardHolderName.setError("Enter the valid card holder name");
-                edtCardHolderName.requestFocus();
+            String cardHolderName = binding.etCardHolderName.getText().toString();
+            if(binding.etCardHolderName.length()<3){
+                binding.etCardHolderName.setError("Enter the valid card holder name");
+                binding.etCardHolderName.requestFocus();
                 return;
             }
 
-            String cvv = edtCvv.getText().toString();
+            String cvv = binding.etCvv.getText().toString();
 
-            String expiryDate = edtExpiryDate.getText().toString();
+            String expiryDate = binding.etExpiryDate.getText().toString();
 
             if(!expiryDate.matches("\\d{2}/\\d{2}")){
-                edtExpiryDate.setError("Use MM/YY format");
-                edtExpiryDate.requestFocus();
+                binding.etExpiryDate.setError("Use MM/YY format");
+                binding.etExpiryDate.requestFocus();
                 return;
             }
             int month = Integer.parseInt(expiryDate.substring(0,2));
 
             if(month<1 || month>12){
-                edtExpiryDate.setError("Month must be between 01 and 12");
-                edtExpiryDate.requestFocus();
+                binding.etExpiryDate.setError("Month must be between 01 and 12");
+                binding.etExpiryDate.requestFocus();
                 return;
             }
 
-            String remarks = edtRemarks.getText().toString();
+            String remarks = binding.etRemarks.getText().toString();
 
 
 //        this will clear the field after submitting
-            edtAmount.setText("");
-            edtCardNo.setText("");
-            edtCardHolderName.setText("");
-            edtCvv.setText("");
-            edtExpiryDate.setText("");
-            edtRemarks.setText("");
+            binding.etAmount.setText("");
+            binding.etCardNumber.setText("");
+            binding.etCardHolderName.setText("");
+            binding.etCvv.setText("");
+            binding.etExpiryDate.setText("");
+            binding.etRemarks.setText("");
 
 //        move cursor to the first field
-            edtAmount.requestFocus();
+            binding.etAmount.requestFocus();
 
 
 
@@ -239,7 +259,7 @@ public class PaymentFormFragment extends Fragment {
 
         });
 
-        edtExpiryDate.addTextChangedListener(new TextWatcher() {
+        binding.etExpiryDate.addTextChangedListener(new TextWatcher() {
             private String current = "";
 
             @Override
@@ -263,7 +283,7 @@ public class PaymentFormFragment extends Fragment {
                     return;
                 }
 
-                String clean = input.replaceAll("[^\\d]", "");
+                String clean = input.replaceAll("\\D", "");
 
                 // it will allow maximum 4 digits (MMYY)
                 if (clean.length() > 4) {
@@ -280,11 +300,11 @@ public class PaymentFormFragment extends Fragment {
 
                 current = formatted;
 
-                edtExpiryDate.setText(formatted);
+                binding.etExpiryDate.setText(formatted);
 
 
 
-                edtExpiryDate.setSelection(formatted.length());
+                binding.etExpiryDate.setSelection(formatted.length());
             }
 
 
@@ -292,7 +312,7 @@ public class PaymentFormFragment extends Fragment {
 
         });
 
-        edtAmount.addTextChangedListener(new TextWatcher() {
+        binding.etAmount.addTextChangedListener(new TextWatcher() {
             private String current;
 
             @Override
@@ -307,9 +327,9 @@ public class PaymentFormFragment extends Fragment {
             @Override
             public void afterTextChanged(Editable s) {
                 if (!s.toString().equals(current)) {
-                    edtAmount.removeTextChangedListener(this);
+                    binding.etAmount.removeTextChangedListener(this);
 
-                    String cleanString = s.toString().replaceAll("[\\D]", "");
+                    String cleanString = s.toString().replaceAll("\\D", "");
 
                     if (!cleanString.isEmpty()) {
                         try {
@@ -325,17 +345,17 @@ public class PaymentFormFragment extends Fragment {
                             String formatted = formatter.format(formattedValue);
 
                             current = formatted;
-                            edtAmount.setText(formatted);
-                            edtAmount.setSelection(formatted.length());
-                        } catch (NumberFormatException e) {
+                            binding.etAmount.setText(formatted);
+                            binding.etAmount.setSelection(formatted.length());
+                        } catch (NumberFormatException ignored) {
 
                         }
                     } else {
                         current = "";
-                        edtAmount.setText("");
+                        binding.etAmount.setText("");
                     }
 
-                    edtAmount.addTextChangedListener(this);
+                    binding.etAmount.addTextChangedListener(this);
                 }
 
             }
