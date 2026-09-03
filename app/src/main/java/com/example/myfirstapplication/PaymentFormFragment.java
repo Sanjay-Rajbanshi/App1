@@ -16,8 +16,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -81,9 +79,11 @@ public class PaymentFormFragment extends Fragment {
         );
         IntentFilter filter = new IntentFilter(ACTION_PAYMENT_FINISHED);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            requireContext().registerReceiver(paymentFinishedReceiver,
-                    filter,
-                    Context.RECEIVER_NOT_EXPORTED);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                requireContext().registerReceiver(paymentFinishedReceiver,
+                        filter,
+                        Context.RECEIVER_NOT_EXPORTED);
+            }
         }
 
     }
@@ -117,11 +117,6 @@ public class PaymentFormFragment extends Fragment {
         binding = FragmentPaymentFormBinding.inflate(getLayoutInflater());
         return binding.getRoot();
 
-//        return inflater.inflate(
-//                R.layout.fragment_payment_form,
-//                container,
-//                false
-//        );
     }
 
 

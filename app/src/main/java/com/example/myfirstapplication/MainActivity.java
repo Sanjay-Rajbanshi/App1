@@ -23,6 +23,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import com.example.myapplication2.IPaymentService;
+import com.example.myapplication2.TransactionData;
 import com.example.myfirstapplication.databinding.ActivityMainBinding;
 
 @RequiresApi(api = Build.VERSION_CODES.TIRAMISU)
@@ -30,6 +31,12 @@ public class MainActivity extends AppCompatActivity {
     private static final int NOTIFICATION_PERMISSION_REQUEST_CODE = 100;
 private IPaymentService paymentService;
 private boolean isBound = false;
+
+    private static final String EXTRA_OPEN_HISTORY = "openHistory";
+
+    private static final String EXTRA_OPEN_TRANSACTION_DIALOG = "openTransactionDialog";
+
+    private static final String EXTRA_TRANSACTION = "transaction";
 
     public IPaymentService getPaymentService(){
     return paymentService;
@@ -83,15 +90,16 @@ protected void onStop(){
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main);
+//        setContentView(R.layout.activity_main);
+
+        ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+
 
         if(savedInstanceState == null){
-            if(getIntent().getBooleanExtra("openHistory", false)){
-                getSupportFragmentManager()
-                        .beginTransaction()
-                        .replace(R.id.fragmentContainerView,
-                                new TransactionHistoryFragment())
-                        .commit();
+            boolean openHistory = getIntent().getBooleanExtra(EXTRA_OPEN_HISTORY, false);
+            if(openHistory){
+                openTransactionHistoryFromNotification();
             }
             else {
                 getSupportFragmentManager()
@@ -105,8 +113,7 @@ protected void onStop(){
 
 //Home button
 
-        ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+
         binding.btnHome.setOnClickListener(v -> getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.fragmentContainerView,
@@ -117,11 +124,6 @@ protected void onStop(){
 
 
         //payment button
-
-//        inflate the layout
-
-
-// access the button safely using binding object
         binding.btnPayment.setOnClickListener(v->{
             FragmentManager fragmentManager = getSupportFragmentManager();
             fragmentManager.beginTransaction()
@@ -135,7 +137,6 @@ protected void onStop(){
 
 
 //history button
-//        ImageButton imgBtn = findViewById(R.id.btnPaymentHistory);
 
        binding.btnPaymentHistory.setOnClickListener(v -> {
             FragmentManager fragmentManager = getSupportFragmentManager();
@@ -208,6 +209,31 @@ protected void onStop(){
         });
     }
 
+    @Override
+    protected void onNewIntent(Intent intent){
+    super.onNewIntent(intent);
+    setIntent(intent);
+        Log.d(
+                "NOTIFICATION_FLOW",
+                "MainActivity onNewIntent() called"
+        );
+
+        boolean openHistory = intent.getBooleanExtra(
+                        EXTRA_OPEN_HISTORY,
+                        false
+                );
+
+        Log.d(
+                "NOTIFICATION_FLOW",
+                "openHistory = " + openHistory
+        );
+
+        if (openHistory) {
+            openTransactionHistoryFromNotification();
+        }
+
+    }
+
 
 
 
@@ -215,6 +241,39 @@ protected void onStop(){
     getSupportFragmentManager()
             .beginTransaction()
             .replace(R.id.fragmentContainerView, new HomeFragment())
+            .commit();
+    }
+
+    //this method act as bridge between MainActivity and TransactionHistoryFragment
+    private void openTransactionHistoryFromNotification(){
+
+    //this get transaction from intent
+        TransactionData transactionData;
+
+        transactionData = getIntent().getParcelableExtra(
+                        EXTRA_TRANSACTION,
+                        TransactionData.class
+                );
+
+        boolean openTransactionDialog = getIntent().getBooleanExtra(EXTRA_OPEN_TRANSACTION_DIALOG, false);
+
+        // this creates history fragment
+    TransactionHistoryFragment fragment = new TransactionHistoryFragment();
+    Bundle bundle = new Bundle();
+    if(openTransactionDialog && transactionData != null){
+        bundle.putBoolean(EXTRA_OPEN_TRANSACTION_DIALOG,
+                true);
+        bundle.putParcelable(
+                EXTRA_TRANSACTION, transactionData
+        );
+    }
+    fragment.setArguments(bundle);
+
+
+    getSupportFragmentManager()
+            .beginTransaction()
+            .replace(R.id.fragmentContainerView,
+                    fragment)
             .commit();
     }
 }
