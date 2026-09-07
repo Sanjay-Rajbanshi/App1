@@ -31,10 +31,10 @@
         android:layout_gravity="center"
         android:layout_marginTop="50dp"
         android:layout_marginBottom="20dp"
-        android:text="Payment Details"
+        android:text="@string/payment_details"
         android:textSize="30sp"
         android:textStyle="bold"
-        tools:ignore="HardcodedText" />
+        />
 
     <!--    amount-->
 
@@ -52,7 +52,7 @@
         android:layout_height="wrap_content"
         android:importantForAutofill="no"
         android:inputType="number"
-
+        android:imeOptions= "actionNext"
         android:maxLength="16"
 
         tools:ignore="LabelFor" />
@@ -73,7 +73,7 @@
         android:importantForAutofill="no"
         android:inputType="number"
         android:maxLength="16"
-
+        android:imeOptions= "actionNext"
         tools:ignore="LabelFor" />
 
     <!--for card name-->
@@ -89,7 +89,7 @@
         android:layout_height="wrap_content"
         android:importantForAutofill="no"
         android:maxLength="35"
-
+        android:imeOptions= "actionNext"
         android:inputType="text"
         tools:ignore="LabelFor" />
 
@@ -109,8 +109,7 @@
         android:importantForAutofill="no"
         android:inputType="number"
         android:maxLength="3"
-
-
+        android:imeOptions= "actionNext"
         tools:ignore="LabelFor" />
 
 
@@ -134,7 +133,7 @@
         android:importantForAutofill="no"
         android:inputType="datetime"
         android:maxLength="5"
-
+        android:imeOptions= "actionNext"
 
         />
 
@@ -153,7 +152,7 @@
         android:importantForAutofill="no"
         android:inputType="text"
 
-
+        android:imeOptions= "actionDone"
 
         />
 

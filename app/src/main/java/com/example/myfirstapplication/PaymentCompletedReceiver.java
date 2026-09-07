@@ -106,6 +106,7 @@ public  class PaymentCompletedReceiver extends BroadcastReceiver {
         // this sends payment finished broadcast
 Intent finishedIntent = new Intent("com.example.myfirstapplication.PAYMENT_FINISHED");
 finishedIntent.setPackage("com.example.myfirstapplication");
+        finishedIntent.putExtra(EXTRA_TRANSACTION_ID, transactionId);
 context.sendBroadcast(finishedIntent);
 
 

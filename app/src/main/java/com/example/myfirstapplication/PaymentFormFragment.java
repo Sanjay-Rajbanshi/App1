@@ -1,6 +1,7 @@
 package com.example.myfirstapplication;
 
 import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
@@ -13,19 +14,29 @@ import android.os.IBinder;
 import android.os.RemoteException;
 import android.text.Editable;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import android.text.TextWatcher;
 
 import com.example.myapplication2.IPaymentService;
+import com.example.myapplication2.TransactionData;
 import com.example.myfirstapplication.databinding.FragmentPaymentFormBinding;
 
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Locale;
 
 
@@ -37,6 +48,7 @@ public class PaymentFormFragment extends Fragment {
 
     private IPaymentService paymentService;
     private boolean isBound = false;
+    private boolean receiverRegistered = false;
     private FragmentPaymentFormBinding binding;
     private static final String ACTION_PAYMENT_FINISHED = "com.example.myfirstapplication.PAYMENT_FINISHED";
 
@@ -78,32 +90,82 @@ public class PaymentFormFragment extends Fragment {
         Log.d("AIDL_CLIENT", "bindService result = " + result
         );
         IntentFilter filter = new IntentFilter(ACTION_PAYMENT_FINISHED);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                requireContext().registerReceiver(paymentFinishedReceiver,
-                        filter,
-                        Context.RECEIVER_NOT_EXPORTED);
-            }
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+//                requireContext().registerReceiver(paymentFinishedReceiver,
+//                        filter,
+//                        Context.RECEIVER_NOT_EXPORTED);
+//            }
+//        }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            requireContext().registerReceiver(
+                    paymentFinishedReceiver,
+                    filter,
+                    Context.RECEIVER_NOT_EXPORTED
+            );
+        } else {
+            ContextCompat.registerReceiver(requireContext(), paymentFinishedReceiver, filter, ContextCompat.RECEIVER_NOT_EXPORTED);
         }
+
+        receiverRegistered = true;
 
     }
 
 
     //    Unbind service
-    public void onStop(){
+//    public void onStop(){
+//        super.onStop();
+//        if(isBound){
+//            requireContext().unbindService(serviceConnection);
+//            isBound = false;
+//        }
+//        requireContext().unregisterReceiver(paymentFinishedReceiver);
+//    }
+
+
+    @Override
+    public void onStop() {
         super.onStop();
-        if(isBound){
+
+        if (isBound) {
             requireContext().unbindService(serviceConnection);
             isBound = false;
         }
-        requireContext().unregisterReceiver(paymentFinishedReceiver);
+
+        if (receiverRegistered) {
+            requireContext().unregisterReceiver(paymentFinishedReceiver);
+            receiverRegistered = false;
+        }
     }
 
     private final BroadcastReceiver paymentFinishedReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
             if(ACTION_PAYMENT_FINISHED.equals(intent.getAction())){
-                hidePaymentLoading();
+               // hidePaymentLoading();
+
+                int transactionId = intent.getIntExtra("transaction_id", -1);
+
+                if (transactionId != -1 && isBound && paymentService != null) {
+                    try {
+                        TransactionData transaction =
+                                paymentService.getTransactionById(transactionId);
+
+                        if (transaction != null) {
+                            hidePaymentLoading();
+
+                            showPaymentSuccessDialog(
+                                    String.valueOf(transaction.getTid()),
+                                    Double.parseDouble(transaction.getAmount()),
+                                    transaction.getDatetime()
+                            );
+                        }
+
+                    } catch (RemoteException e) {
+                        Log.e("APP1", "Failed to get transaction", e);
+                    }
+                }
             }
         }
     };
@@ -151,7 +213,6 @@ public class PaymentFormFragment extends Fragment {
        // Button btnProceed = view.findViewById(R.id.btnProceed);
         binding.btnProceed.setOnClickListener(v->{
 
-          showPaymentLoading();
 
 
             if(binding.etAmount.getText().toString().trim().isEmpty() ||
@@ -224,6 +285,8 @@ public class PaymentFormFragment extends Fragment {
 
             String remarks = binding.etRemarks.getText().toString();
 
+            showPaymentLoading();
+
 
 //        this will clear the field after submitting
             binding.etAmount.setText("");
@@ -232,6 +295,11 @@ public class PaymentFormFragment extends Fragment {
             binding.etCvv.setText("");
             binding.etExpiryDate.setText("");
             binding.etRemarks.setText("");
+
+//hide the keyboard
+            InputMethodManager inputMethodManager = (InputMethodManager) requireContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+            inputMethodManager.hideSoftInputFromWindow(binding.etAmount.getWindowToken(),0);
+
 
 //        move cursor to the first field
             binding.etAmount.requestFocus();
@@ -379,6 +447,60 @@ public class PaymentFormFragment extends Fragment {
 
             }
         });
+    }
+    private String formatDateTime(String dateTime){
+        try {
+            SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.US);
+            SimpleDateFormat outputFormat = new SimpleDateFormat("dd MMM yyyy, hh:mm:a", Locale.US);
+            Date date = inputFormat.parse(dateTime);
+            assert date != null;
+            return outputFormat.format(date);
+        }catch (Exception e){
+            return dateTime;
+        }
+    }
+
+    private void showPaymentSuccessDialog(
+            String tid,
+            double amount,
+            String currentDateTime) {
+
+        Dialog dialog = new Dialog(requireContext());
+        dialog.setContentView(R.layout.dialog_payment_success);
+
+
+        TextView tvAmount = dialog.findViewById(R.id.tvAmount);
+
+        TextView tvTransactionId = dialog.findViewById(R.id.tvTransactionId);
+
+        TextView tvDate = dialog.findViewById(R.id.tvDate);
+
+        Button btnDone = dialog.findViewById(R.id.btnDone);
+
+        tvAmount.setText(String.format(Locale.US, "Rs. %,.2f", amount));
+
+        tvTransactionId.setText(tid);
+
+        tvDate.setText(formatDateTime(currentDateTime));
+
+
+        btnDone.setOnClickListener(v->dialog.dismiss());
+        dialog.show();
+
+        Window window = dialog.getWindow();
+
+        if(window!= null){
+            //remove default dialog background
+            window.setBackgroundDrawableResource(android.R.color.transparent);
+
+            //center the dialog
+            window.setGravity(Gravity.CENTER);
+            window.setLayout(
+                    (int) (340* getResources()
+                            .getDisplayMetrics().density),
+                    WindowManager.LayoutParams.WRAP_CONTENT
+            );
+        }
     }
 
     private void showPaymentLoading(){

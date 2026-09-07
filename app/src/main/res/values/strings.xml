@@ -15,4 +15,13 @@
     <string name="remarks">Remarks</string>
     <string name="proceed">Proceed</string>
     <string name="payment_processing">Payment Processing</string>
+    <string name="your_transaction_has_been_completed">Your transaction has been completed</string>
+    <string name="amount_paid">Amount Paid</string>
+    <string name="transaction_id">Transaction ID</string>
+    <string name="date">Date</string>
+    <string name="done">Done</string>
+    <string name="download_receipt">Download Receipt</string>
+    <string name="tick">✓</string>
+    <string name="payment_successful">Payment Successful</string>
+    <string name="payment_details">Payment Details</string>
 </resources>

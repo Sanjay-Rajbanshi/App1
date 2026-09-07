@@ -14,5 +14,6 @@ interface IPaymentService {
 
 List<TransactionData> getTransactions();
 void deleteTransaction(int transactionId);
+TransactionData getTransactionById(int transactionId);
 
 }

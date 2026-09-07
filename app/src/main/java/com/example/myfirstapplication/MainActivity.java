@@ -38,6 +38,7 @@ private boolean isBound = false;
 
     private static final String EXTRA_TRANSACTION = "transaction";
 
+
     public IPaymentService getPaymentService(){
     return paymentService;
 }
@@ -250,10 +251,18 @@ protected void onStop(){
     //this get transaction from intent
         TransactionData transactionData;
 
-        transactionData = getIntent().getParcelableExtra(
-                        EXTRA_TRANSACTION,
-                        TransactionData.class
-                );
+//        transactionData = getIntent().getParcelableExtra(
+//                        EXTRA_TRANSACTION,
+//                        TransactionData.class
+//                );
+//
+        if(Build.VERSION.SDK_INT>= Build.VERSION_CODES.TIRAMISU) {
+            transactionData = getIntent().getParcelableExtra(EXTRA_TRANSACTION, TransactionData.class);
+
+        }
+        else //noinspection deprecation
+            transactionData = getIntent().getParcelableExtra(EXTRA_TRANSACTION);
+
 
         boolean openTransactionDialog = getIntent().getBooleanExtra(EXTRA_OPEN_TRANSACTION_DIALOG, false);
 

@@ -1,12 +1,10 @@
 package com.example.myfirstapplication;
 
 import android.annotation.SuppressLint;
-import android.app.AlertDialog;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -16,14 +14,14 @@ import com.example.myapplication2.TransactionData;
 
 import java.util.ArrayList;
 import java.util.List;
-import android.content.Intent;
+
 interface OnTransactionActionListener{
     void onDeleteTransaction(int transactionId);
     void onTransactionClick(TransactionData transaction);
 }
 public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.TransactionViewHolder> {
 
-    private final Context context;
+  //  private final Context context;
 
     private final List<TransactionData> transactionList;
 
@@ -36,7 +34,7 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
             List<TransactionData> transactionList,
             OnTransactionActionListener listener) {
 
-        this.context = context;
+      //  this.context = context;
         this.transactionList = new ArrayList<>(transactionList);
         this.listener = listener;
 
@@ -72,10 +70,7 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
                 "Amount: " + transaction.getAmount()
         );
 
-        holder.itemView.setOnClickListener(v -> {
-
-    listener.onTransactionClick(transaction);
-        });
+        holder.itemView.setOnClickListener(v -> listener.onTransactionClick(transaction));
 
 //        holder.itemView.setOnClickListener(v ->
 //

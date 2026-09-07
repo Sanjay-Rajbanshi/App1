@@ -65,4 +65,8 @@ dependencies {
     // For control over item selection of both touch and mouse driven selection
     //noinspection UseTomlInstead
     implementation "androidx.recyclerview:recyclerview-selection:1.2.0"
+
+
+
+    implementation "androidx.core:core:1.17.0"
 }
