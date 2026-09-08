@@ -22,6 +22,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
@@ -51,6 +52,7 @@ public class PaymentFormFragment extends Fragment {
     private boolean receiverRegistered = false;
     private FragmentPaymentFormBinding binding;
     private static final String ACTION_PAYMENT_FINISHED = "com.example.myfirstapplication.PAYMENT_FINISHED";
+    private FrameLayout loadingOverlay;
 
 
 
@@ -187,7 +189,7 @@ public class PaymentFormFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
 
-
+//commented this because i used viewbinding
 //        edtAmount = view.findViewById(R.id.etAmount);
 //        edtAmount.setText("Rs. ");
 //        edtAmount.setSelection(edtAmount.length());
@@ -207,7 +209,7 @@ public class PaymentFormFragment extends Fragment {
 
 
 
-
+        loadingOverlay = view.findViewById(R.id.loadingOverlay);
 
 
        // Button btnProceed = view.findViewById(R.id.btnProceed);
@@ -504,13 +506,34 @@ public class PaymentFormFragment extends Fragment {
     }
 
     private void showPaymentLoading(){
-        binding.btnProceed.setEnabled(false);
-        binding.paymentProgress.setVisibility(View.VISIBLE);
+//        binding.etAmount.setEnabled(false);
+//        binding.btnProceed.setEnabled(false);
+//        binding.paymentProgress.setVisibility(View.VISIBLE);
+//        binding.tvPaymentProcessing.setVisibility(View.VISIBLE);
+        loadingOverlay.setVisibility(View.VISIBLE);
+
+        binding.etAmount.setEnabled(false);
+      binding.etCardNumber.setEnabled(false);
+        binding.etCardHolderName.setEnabled(false);
+        binding.etCvv.setEnabled(false);
+        binding.etExpiryDate.setEnabled(false);
+
+        binding.etRemarks.setEnabled(false);
         binding.tvPaymentProcessing.setVisibility(View.VISIBLE);
     }
     private void hidePaymentLoading() {
-        binding.btnProceed.setEnabled(true);
-        binding.paymentProgress.setVisibility(View.GONE);
-        binding.tvPaymentProcessing.setVisibility(View.GONE);
+//        binding.etAmount.setEnabled(true);
+//        binding.btnProceed.setEnabled(true);
+//        binding.paymentProgress.setVisibility(View.GONE);
+//        binding.tvPaymentProcessing.setVisibility(View.GONE);
+
+        loadingOverlay.setVisibility(View.GONE);
+        binding.etAmount.setEnabled(true);
+        binding.etCardNumber.setEnabled(true);
+        binding.etCardHolderName.setEnabled(true);
+        binding.etCvv.setEnabled(true);
+        binding.etExpiryDate.setEnabled(true);
+
+        binding.etRemarks.setEnabled(true);
     }
 }

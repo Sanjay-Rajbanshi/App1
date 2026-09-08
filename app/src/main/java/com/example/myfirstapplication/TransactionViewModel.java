@@ -23,6 +23,7 @@ public class TransactionViewModel extends ViewModel {
     public LiveData<List<TransactionData>>getTransactions(){
         return transactions;
     }
+    @SuppressWarnings("CallToPrintStackTrace")
     public void loadTransactions(){
         executorService.execute(()->{
             try {
@@ -35,6 +36,7 @@ public class TransactionViewModel extends ViewModel {
         });
     }
 
+    @SuppressWarnings("CallToPrintStackTrace")
     public void deleteTransaction(int transactionId){
         executorService.execute(()->{
             try {
