@@ -99,7 +99,7 @@ public class PaymentFormFragment extends Fragment {
 //                        Context.RECEIVER_NOT_EXPORTED);
 //            }
 //        }
-
+// to run in android version below 13
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             requireContext().registerReceiver(
                     paymentFinishedReceiver,
@@ -189,7 +189,7 @@ public class PaymentFormFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
 
-//commented this because i used viewbinding
+//commented this as view binding is used
 //        edtAmount = view.findViewById(R.id.etAmount);
 //        edtAmount.setText("Rs. ");
 //        edtAmount.setSelection(edtAmount.length());

@@ -24,4 +24,5 @@
     <string name="tick">✓</string>
     <string name="payment_successful">Payment Successful</string>
     <string name="payment_details">Payment Details</string>
+    <string name="please_wait">Please wait...</string>
 </resources>
