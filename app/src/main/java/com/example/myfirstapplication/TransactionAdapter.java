@@ -141,8 +141,8 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
 //        TextView amount =
 //                view.findViewById(R.id.txtDetailAmount);
 //
-//        TextView cardNo =
-//                view.findViewById(R.id.txtDetailCardNo);
+//        TextView cardNumber =
+//                view.findViewById(R.id.txtDetailCardNumber);
 //
 //        TextView cardHolderName =
 //                view.findViewById(
@@ -176,8 +176,8 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
 //                "Amount : " + transaction.getAmount()
 //        );
 //
-//        cardNo.setText(
-//                "Card No : " + transaction.getCardNo()
+//        cardNumber.setText(
+//                "Card No : " + transaction.getCardNumber()
 //        );
 //
 //        cardHolderName.setText(

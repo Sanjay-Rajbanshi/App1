@@ -180,6 +180,8 @@
             android:textSize="10sp"
             tools:ignore="SmallSp" />
 
+
+
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

@@ -5,7 +5,7 @@ import com.example.myapplication2.TransactionData;
 interface IPaymentService {
  void processPayment(
         double amount,
-        String cardNo,
+        String cardNumber,
         String cardHolderName,
         String cvv,
         String expiryDate,

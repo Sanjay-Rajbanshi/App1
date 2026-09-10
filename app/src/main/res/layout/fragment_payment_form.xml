@@ -47,7 +47,7 @@
                 android:importantForAutofill="no"
                 android:inputType="number"
                 android:imeOptions="actionNext"
-                android:maxLength="16"
+                android:maxLength="19"
                 tools:ignore="LabelFor" />
 
             <TextView
@@ -62,7 +62,7 @@
                 android:layout_height="wrap_content"
                 android:importantForAutofill="no"
                 android:inputType="number"
-                android:maxLength="16"
+
                 android:imeOptions="actionNext"
                 tools:ignore="LabelFor" />
 

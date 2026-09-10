@@ -8,7 +8,7 @@ import android.os.Parcel;
 public class TransactionData implements Parcelable {
     private final int tid;
     private final String amount;
-    private final String cardNo;
+    private final String cardNumber;
     private final String cardHolderName;
     private final String cvv;
 
@@ -21,7 +21,7 @@ public class TransactionData implements Parcelable {
     protected TransactionData(Parcel in){
         tid = in.readInt();
         amount = in.readString();
-        cardNo = in.readString();
+        cardNumber = in.readString();
         cardHolderName = in.readString();
         cvv = in.readString();
         expiryDate = in.readString();
@@ -52,8 +52,8 @@ public class TransactionData implements Parcelable {
 
 
 
-    public String getCardNo() {
-        return cardNo;
+    public String getCardNumber() {
+        return cardNumber;
     }
 
 
@@ -91,7 +91,7 @@ public class TransactionData implements Parcelable {
     public void writeToParcel(Parcel dest, int flags){
         dest.writeInt(tid);
         dest.writeString(amount);
-        dest.writeString(cardNo);
+        dest.writeString(cardNumber);
         dest.writeString(cardHolderName);
         dest.writeString(cvv);
         dest.writeString(expiryDate);

@@ -177,7 +177,7 @@ public class PaymentFormFragment extends Fragment {
             @NonNull LayoutInflater inflater,
             ViewGroup container,
             Bundle savedInstanceState) {
-        //layout inflate
+
         binding = FragmentPaymentFormBinding.inflate(getLayoutInflater());
         return binding.getRoot();
 
@@ -254,7 +254,7 @@ public class PaymentFormFragment extends Fragment {
 
 
             String cardNo = binding.etCardNumber.getText().toString();
-            if (!cardNo.matches("\\d{16}")) {
+            if (!cardNo.matches("\\d{4} \\d{4} \\d{4} \\d{4}")) {
                 binding.etCardNumber.setError("Card number must be 16 digits");
                 binding.etCardNumber.requestFocus();
                 return;
@@ -449,6 +449,46 @@ public class PaymentFormFragment extends Fragment {
 
             }
         });
+        binding.etCardNumber.addTextChangedListener(new TextWatcher() {
+
+            private String current ="";
+            @Override
+            public void afterTextChanged(Editable editable) {
+                String input = editable.toString();
+                if(input.equals(current)){
+                    return;
+                }
+                binding.etCardNumber.removeTextChangedListener(this);
+                String clean = input.replaceAll("\\D", "");
+                if(clean.length()>16){
+                    clean = clean.substring(0, 16);
+                }
+                StringBuilder formatted = new StringBuilder();
+                for(int i = 0; i<clean.length(); i++){
+                    if(i>0 && i % 4 == 0){
+                        formatted.append(" ");
+                    }
+                    formatted.append(clean.charAt(i));
+                }
+                current = formatted.toString();
+
+                binding.etCardNumber.setText(current);
+                binding.etCardNumber.setSelection(current.length());
+
+                binding.etCardNumber.addTextChangedListener(this);
+
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+        });
     }
     private String formatDateTime(String dateTime){
         try {
@@ -469,7 +509,6 @@ public class PaymentFormFragment extends Fragment {
 
         Dialog dialog = new Dialog(requireContext());
         dialog.setContentView(R.layout.dialog_payment_success);
-
 
         TextView tvAmount = dialog.findViewById(R.id.tvAmount);
 
