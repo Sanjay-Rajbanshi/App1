@@ -24,7 +24,7 @@
     <string name="tick">✓</string>
     <string name="payment_successful">Payment Successful</string>
     <string name="payment_details">Payment Details</string>
-    <string name="please_wait">Please wait...</string>
+    <string name="please_wait">Please wait…</string>
     <string name="print_receipt">Print Receipt</string>
     <string name="welcome_to_home">Welcome to Home</string>
     <string name="transaction_summary">Transaction Summary</string>
@@ -38,5 +38,11 @@
     <string name="clockicon">◷</string>
     <string name="view_all_transactions">View All Transactions</string>
     <string name="Rs">Rs</string>
+    <string name="enter_amount">Enter amount</string>
+    <string name="_1234_5678_9012_3456">1234 5678 9012 3456</string>
+    <string name="name_on_card">Name on card</string>
+    <string name="transaction_details">Transaction Details</string>
+    <string name="time">TIME</string>
+    <string name="payment_information">Payment Information</string>
 
 </resources>

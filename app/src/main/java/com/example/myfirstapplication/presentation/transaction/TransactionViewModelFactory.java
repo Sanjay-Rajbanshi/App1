@@ -1,8 +1,10 @@
-package com.example.myfirstapplication;
+package com.example.myfirstapplication.presentation.transaction;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
+
+import com.example.myfirstapplication.domain.repository.TransactionRepository;
 
 public class TransactionViewModelFactory implements ViewModelProvider.Factory {
     private final TransactionRepository transactionRepository;

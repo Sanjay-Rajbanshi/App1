@@ -1,9 +1,8 @@
-package com.example.myfirstapplication;
+package com.example.myfirstapplication.receiver;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
-import android.app.TaskStackBuilder;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -11,6 +10,9 @@ import android.os.Build;
 import android.util.Log;
 
 import androidx.core.app.NotificationCompat;
+
+import com.example.myfirstapplication.R;
+import com.example.myfirstapplication.presentation.activity.MainActivity;
 
 public  class PaymentCompletedReceiver extends BroadcastReceiver {
     private static final String TAG = "PaymentCompletedReceiver";

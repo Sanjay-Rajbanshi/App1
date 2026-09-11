@@ -1,4 +1,4 @@
-package com.example.myfirstapplication;
+package com.example.myfirstapplication.presentation.payment;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
@@ -32,6 +32,7 @@ import android.text.TextWatcher;
 
 import com.example.myapplication2.IPaymentService;
 import com.example.myapplication2.TransactionData;
+import com.example.myfirstapplication.R;
 import com.example.myfirstapplication.databinding.FragmentPaymentFormBinding;
 
 import java.text.DecimalFormat;
@@ -187,27 +188,6 @@ public class PaymentFormFragment extends Fragment {
     @SuppressLint("SetTextI18n")
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-
-//commented this as view binding is used
-//        edtAmount = view.findViewById(R.id.etAmount);
-//        edtAmount.setText("Rs. ");
-//        edtAmount.setSelection(edtAmount.length());
-//        edtCardNo = view.findViewById(R.id.etCardNumber);
-//        edtCardHolderName = view.findViewById(R.id.etCardHolderName);
-//        edtCvv = view.findViewById(R.id.etCvv);
-//        edtExpiryDate = view.findViewById(R.id.etExpiryDate);
-//        edtRemarks = view.findViewById(R.id.etRemarks);
-
-        binding.etAmount.setText("Rs. ");
-        binding.etAmount.setSelection(binding.etAmount.length());
-//        String cardNumber = binding.etCardNumber.getText().toString();
-//        String cardHolderName = binding.etCardHolderName.getText().toString();
-//        String cvv = binding.etCvv.getText().toString();
-//        String expiryDate = binding.etExpiryDate.getText().toString();
-//        String remarks = binding.etRemarks.getText().toString();
-
-
 
         loadingOverlay = view.findViewById(R.id.loadingOverlay);
 
@@ -435,7 +415,7 @@ public class PaymentFormFragment extends Fragment {
 
                             current = formatted;
                             binding.etAmount.setText(formatted);
-                            binding.etAmount.setSelection(formatted.length());
+                            binding.etAmount.setSelection(binding.etAmount.length());
                         } catch (NumberFormatException ignored) {
 
                         }

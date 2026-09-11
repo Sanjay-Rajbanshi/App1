@@ -1,4 +1,4 @@
-package com.example.myfirstapplication;
+package com.example.myfirstapplication.presentation.transaction;
 
 import android.annotation.SuppressLint;
 import android.view.LayoutInflater;

@@ -1,4 +1,4 @@
-package com.example.myfirstapplication;
+package com.example.myfirstapplication.domain.repository;
 
 import android.os.RemoteException;
 

@@ -1,4 +1,4 @@
-package com.example.myfirstapplication;
+package com.example.myfirstapplication.presentation.activity;
 
 import android.Manifest;
 import android.content.ComponentName;
@@ -9,10 +9,10 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.util.Log;
+import android.view.View;
 
 import androidx.activity.EdgeToEdge;
 import androidx.activity.OnBackPressedCallback;
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -24,9 +24,13 @@ import androidx.fragment.app.FragmentManager;
 
 import com.example.myapplication2.IPaymentService;
 import com.example.myapplication2.TransactionData;
+import com.example.myfirstapplication.presentation.payment.PaymentFormFragment;
+import com.example.myfirstapplication.R;
+import com.example.myfirstapplication.presentation.transaction.TransactionHistoryFragment;
 import com.example.myfirstapplication.databinding.ActivityMainBinding;
+import com.example.myfirstapplication.presentation.home.HomeFragment;
 
-@RequiresApi(api = Build.VERSION_CODES.TIRAMISU)
+
 public class MainActivity extends AppCompatActivity {
     private static final int NOTIFICATION_PERMISSION_REQUEST_CODE = 100;
 private IPaymentService paymentService;
@@ -37,6 +41,7 @@ private boolean isBound = false;
     private static final String EXTRA_OPEN_TRANSACTION_DIALOG = "openTransactionDialog";
 
     private static final String EXTRA_TRANSACTION = "transaction";
+    private    ActivityMainBinding binding;
 
 
     public IPaymentService getPaymentService(){
@@ -93,7 +98,7 @@ protected void onStop(){
         EdgeToEdge.enable(this);
 //        setContentView(R.layout.activity_main);
 
-        ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
+      binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
 
@@ -115,13 +120,13 @@ protected void onStop(){
 //Home button
 
 
-        binding.btnHome.setOnClickListener(v -> getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.fragmentContainerView,
-                        HomeFragment.class,
-                        null)
-                .setReorderingAllowed(true)
-                .commit());
+//        binding.btnHome.setOnClickListener(v -> getSupportFragmentManager()
+//                .beginTransaction()
+//                .replace(R.id.fragmentContainerView,
+//                        HomeFragment.class,
+//                        null)
+//                .setReorderingAllowed(true)
+//                .commit());
 
 
         //payment button
@@ -131,6 +136,8 @@ protected void onStop(){
                     .replace(R.id.fragmentContainerView, PaymentFormFragment.class, null )
                     .setReorderingAllowed(true)
                     .commit();
+            getSupportFragmentManager().executePendingTransactions();
+            updateButtonVisibility();
         });
 
 
@@ -145,7 +152,8 @@ protected void onStop(){
                  .replace(R.id.fragmentContainerView, TransactionHistoryFragment.class, null)
                 .setReorderingAllowed(true)
                 .commit();
-
+getSupportFragmentManager().executePendingTransactions();
+          updateButtonVisibility();
 
 
         });
@@ -180,13 +188,15 @@ protected void onStop(){
                 Manifest.permission.POST_NOTIFICATIONS
         ) != PackageManager.PERMISSION_GRANTED) {
 
-            ActivityCompat.requestPermissions(
-                    this,
-                    new String[]{
-                            Manifest.permission.POST_NOTIFICATIONS
-                    },
-                    NOTIFICATION_PERMISSION_REQUEST_CODE
-            );
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                ActivityCompat.requestPermissions(
+                        this,
+                        new String[]{
+                                Manifest.permission.POST_NOTIFICATIONS
+                        },
+                        NOTIFICATION_PERMISSION_REQUEST_CODE
+                );
+            }
         }
 
 
@@ -243,6 +253,26 @@ protected void onStop(){
             .beginTransaction()
             .replace(R.id.fragmentContainerView, new HomeFragment())
             .commit();
+
+    getSupportFragmentManager().executePendingTransactions();
+    updateButtonVisibility();
+    }
+
+    public void updateButtonVisibility(){
+    Fragment currentFragment = getSupportFragmentManager()
+            .findFragmentById(R.id.fragmentContainerView);
+    if(currentFragment instanceof  HomeFragment){
+        binding.btnPayment.setVisibility(View.VISIBLE);
+        binding.btnPaymentHistory.setVisibility(View.VISIBLE);
+    }
+    else if (currentFragment instanceof PaymentFormFragment){
+        binding.btnPayment.setVisibility(View.GONE);
+        binding.btnPaymentHistory.setVisibility(View.VISIBLE);
+    }
+    else if(currentFragment instanceof TransactionHistoryFragment){
+        binding.btnPayment.setVisibility(View.VISIBLE);
+        binding.btnPaymentHistory.setVisibility(View.GONE);
+    }
     }
 
     //this method act as bridge between MainActivity and TransactionHistoryFragment
@@ -251,11 +281,6 @@ protected void onStop(){
     //this get transaction from intent
         TransactionData transactionData;
 
-//        transactionData = getIntent().getParcelableExtra(
-//                        EXTRA_TRANSACTION,
-//                        TransactionData.class
-//                );
-//
         if(Build.VERSION.SDK_INT>= Build.VERSION_CODES.TIRAMISU) {
             transactionData = getIntent().getParcelableExtra(EXTRA_TRANSACTION, TransactionData.class);
 

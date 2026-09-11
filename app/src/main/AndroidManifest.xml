@@ -19,7 +19,7 @@
         android:theme="@style/Theme.MyFirstApplication"
         tools:targetApi="33">
         <activity
-            android:name=".MainActivity"
+            android:name=".presentation.activity.MainActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustResize"
             tools:targetApi="33">
@@ -32,7 +32,7 @@
 
 
         <receiver
-            android:name=".PaymentCompletedReceiver"
+            android:name=".receiver.PaymentCompletedReceiver"
             android:exported="true"
             tools:ignore="ExportedReceiver">
 

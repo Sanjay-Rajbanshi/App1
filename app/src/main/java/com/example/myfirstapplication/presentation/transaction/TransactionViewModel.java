@@ -1,4 +1,4 @@
-package com.example.myfirstapplication;
+package com.example.myfirstapplication.presentation.transaction;
 
 import android.annotation.SuppressLint;
 
@@ -7,6 +7,7 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.example.myapplication2.TransactionData;
+import com.example.myfirstapplication.domain.repository.TransactionRepository;
 
 import java.util.List;
 import java.util.concurrent.ExecutorService;

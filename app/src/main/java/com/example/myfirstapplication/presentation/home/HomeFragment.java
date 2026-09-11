@@ -1,4 +1,4 @@
-package com.example.myfirstapplication;
+package com.example.myfirstapplication.presentation.home;
 
 import android.content.ComponentName;
 import android.content.Context;
@@ -19,6 +19,10 @@ import android.view.ViewGroup;
 
 import com.example.myapplication2.IPaymentService;
 import com.example.myapplication2.TransactionData;
+import com.example.myfirstapplication.presentation.activity.MainActivity;
+import com.example.myfirstapplication.R;
+import com.example.myfirstapplication.presentation.transaction.RecentTransactionAdapter;
+import com.example.myfirstapplication.presentation.transaction.TransactionHistoryFragment;
 import com.example.myfirstapplication.databinding.FragmentHomeBinding;
 
 import java.text.SimpleDateFormat;
@@ -103,7 +107,6 @@ public class HomeFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         List<TransactionData> recentTransactions = new ArrayList<>();
 
-        //sample view
 
 
 
@@ -121,12 +124,18 @@ public class HomeFragment extends Fragment {
                     .replace(R.id.fragmentContainerView, new TransactionHistoryFragment())
                     .addToBackStack(null)
                     .commit();
+
+            requireActivity()
+                    .getSupportFragmentManager()
+                    .executePendingTransactions();
+            ((MainActivity) requireActivity()).updateButtonVisibility();
         });
 
 
 
 
     }
+
 
     private void loadRecentTransactions() {
 
